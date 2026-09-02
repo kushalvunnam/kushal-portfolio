@@ -4,17 +4,19 @@ import { Sphere, Line, Text, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 const nodes = [
-  { id: 'react', label: 'React', pos: [0, 2, 0], color: '#00f0ff' },
-  { id: 'js', label: 'JavaScript', pos: [-2, 1, 1], color: '#00f0ff' },
-  { id: 'css', label: 'CSS/HTML', pos: [2, 1, -1], color: '#00f0ff' },
-  { id: 'python', label: 'Python', pos: [-1.5, -1, 1.5], color: '#7000ff' },
-  { id: 'git', label: 'Git/GitHub', pos: [-3, -0.5, -1], color: '#ffffff' },
-  { id: 'java', label: 'Java', pos: [3, -0.5, 1], color: '#ffffff' },
+  { id: 'react', label: 'React.js', pos: [0, 2, 0], color: '#06b6d4' },
+  { id: 'node', label: 'Node.js', pos: [-2, 1, 1], color: '#8b5cf6' },
+  { id: 'express', label: 'Express.js', pos: [2, 1, -1], color: '#8b5cf6' },
+  { id: 'sql', label: 'SQL', pos: [-1.5, -1, 1.5], color: '#0ea5e9' },
+  { id: 'mongo', label: 'MongoDB', pos: [0, -2, 0], color: '#0ea5e9' },
+  { id: 'tailwind', label: 'Tailwind CSS', pos: [1.5, -1, -1.5], color: '#06b6d4' },
+  { id: 'bootstrap', label: 'Bootstrap', pos: [-3, -0.5, -1], color: '#8b5cf6' },
 ];
 
 const edges = [
-  ['react', 'js'], ['js', 'css'], ['react', 'css'],
-  ['js', 'python'], ['git', 'js'], ['java', 'python']
+  ['react', 'node'], ['node', 'express'], ['react', 'tailwind'],
+  ['react', 'bootstrap'], ['node', 'mongo'], ['node', 'sql'],
+  ['express', 'mongo'], ['express', 'sql']
 ];
 
 function Node({ label, pos, color }) {
@@ -22,15 +24,17 @@ function Node({ label, pos, color }) {
   
   return (
     <group position={pos} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}>
-      <Sphere args={[0.15, 16, 16]}>
-        <meshStandardMaterial color={hovered ? '#ffffff' : color} emissive={color} emissiveIntensity={hovered ? 2 : 0.5} />
+      <Sphere args={[0.2, 32, 32]}>
+        <meshStandardMaterial color={hovered ? '#f43f5e' : color} metalness={0.1} roughness={0.2} />
       </Sphere>
       <Text 
-        position={[0, 0.3, 0]} 
-        fontSize={0.2} 
-        color={hovered ? '#ffffff' : color} 
+        position={[0, 0.4, 0]} 
+        fontSize={0.25} 
+        color={hovered ? '#f43f5e' : '#334155'} 
         anchorX="center" 
         anchorY="middle"
+        outlineWidth={0.02}
+        outlineColor="#ffffff"
       >
         {label}
       </Text>
@@ -52,7 +56,7 @@ export default function SkillConstellation() {
     return edges.map((edge, i) => {
       const start = nodes.find(n => n.id === edge[0]).pos;
       const end = nodes.find(n => n.id === edge[1]).pos;
-      return <Line key={i} points={[start, end]} color="rgba(255, 255, 255, 0.1)" lineWidth={1} />;
+      return <Line key={i} points={[start, end]} color="rgba(148, 163, 184, 0.4)" lineWidth={2} />;
     });
   }, []);
 

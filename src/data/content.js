@@ -1,102 +1,43 @@
 export const portfolioData = {
   personal: {
     name: "VUNNAM KUSHAL",
-    role: "Backend Developer | Full-Stack Developer",
+    role: "Full-Stack Developer",
     subtitle: "Building modern, interactive and intelligent digital experiences.",
     email: "kushalnxtwave@gmail.com",
     github: "https://github.com/kushalvunnam",
     linkedin: "https://linkedin.com/in/kushalvunnam",
-    phone: "+91 0000000000",
+    phone: "",
     location: "Hyderabad, India"
   },
-  about: `I am a passionate Backend and Full-Stack Developer focused on building immersive, scalable web applications. I thrive at the intersection of modern UI engineering and robust backend architecture. With hands-on experience in React, Node.js, and databases, I enjoy crafting digital experiences that are visually stunning and functionally powerful.`,
+  about: `I am a passionate Full-Stack Developer focused on building immersive, scalable web applications. I thrive at the intersection of modern UI engineering and robust backend architecture.`,
   skills: {
-    frontend: ["HTML", "CSS", "JavaScript", "React", "Responsive Design"],
-    programming: ["Python", "Java"],
-    tools: ["Git", "GitHub", "VS Code"]
+    frontend: ["React.js", "Bootstrap", "Tailwind CSS"],
+    backend: ["Node.js", "Express.js"],
+    database: ["SQL", "MongoDB"],
+    tools: []
   },
-  projects: [
-    {
-      id: "erp",
-      title: "ERP Management System",
-      subtitle: "Full-Stack Application",
-      description: "A centralized web application to manage business operations. Includes modules for branches, users, products, and customers with role-based access.",
-      technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
-      features: ["Admin dashboard", "Branch management", "CRUD operations", "REST APIs"],
-      liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      id: "mvss",
-      title: "MVSS Management System",
-      subtitle: "Business Dashboard",
-      description: "A practical full-stack management application developed to organize and manage business information through a centralized dashboard.",
-      technologies: ["React.js", "Node.js", "MongoDB"],
-      features: ["Dashboard", "Backend validation", "Responsive interface"],
-      liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      id: "task",
-      title: "Task Management Application",
-      subtitle: "Productivity Tool",
-      description: "A full-stack task management application demonstrating CRUD operations, API communication, and frontend-backend integration.",
-      technologies: ["React.js", "Express.js", "MongoDB"],
-      features: ["CRUD operations", "Task status tracking", "REST APIs"],
-      liveUrl: "#",
-      githubUrl: "#"
-    }
-  ],
+  projects: [],
   education: [
     {
-      id: "mtech",
-      degree: "M.Tech — Machine Learning & Deep Learning",
-      period: "Oct 2023 – Aug 2025",
-      institution: "Malla Reddy University, Hyderabad"
-    },
-    {
       id: "btech",
-      degree: "B.Tech — Computer Science & Engineering",
-      period: "2018 – 2022",
-      institution: "University/College Name"
+      degree: "B.Tech",
+      institution: "Malla Reddy Vishwavidhyapeeth (Deemed-to-be University)",
+      location: "Hyderabad, Telangana",
+      period: "2025 – 2029",
+      cgpa: "9.48",
+      cgpaLabel: "1st Year CGPA"
     },
     {
       id: "inter",
-      degree: "Intermediate / Higher Secondary Education",
-      period: "2015 – 2017",
-      institution: "Bhavan's Sri Aurobindo Junior College, Hyderabad"
-    },
-    {
-      id: "school",
-      degree: "High School",
-      period: "Graduated 2015",
-      institution: "High School Name"
+      degree: "Intermediate",
+      institution: "Sri Chaitanya Junior College",
+      location: "Vijayawada, Andhra Pradesh",
+      period: "2023 – 2025",
+      percentage: "97%",
+      percentageLabel: "Intermediate Percentage"
     }
   ],
-  certifications: [
-    {
-      id: "excel",
-      title: "Excel & Advanced Excel Workshop",
-      issuer: "Jatan Shah",
-      year: "2021"
-    },
-    {
-      id: "java",
-      title: "Java Training Program (4 months)",
-      issuer: "360digrii, Hyderabad",
-      year: "2022"
-    },
-    {
-      id: "iot",
-      title: "IoT Internship",
-      issuer: "Path Creators Pvt. Ltd.",
-      year: "2019"
-    }
-  ],
-  languages: [
-    { name: "English", level: "Fluent", progress: 90 },
-    { name: "Hindi", level: "Fluent", progress: 85 },
-    { name: "Telugu", level: "Fluent", progress: 85 },
-    { name: "Urdu", level: "Native", progress: 100 }
-  ]
+  certifications: [],
+  languages: [],
+  achievements: []
 };

@@ -1,33 +1,58 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Stars, Float, Sphere, MeshDistortMaterial } from '@react-three/drei';
+import { Sphere, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-export default function Universe() {
-  const groupRef = useRef();
+const ParticleGroup = ({ count = 50 }) => {
+  const mesh = useRef();
   
-  useFrame((state) => {
-    // Slowly rotate the entire universe
-    if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.05;
-      groupRef.current.rotation.x = state.clock.elapsedTime * 0.02;
+  const dummy = new THREE.Object3D();
+  const particles = React.useMemo(() => {
+    const temp = [];
+    for (let i = 0; i < count; i++) {
+      const x = (Math.random() - 0.5) * 20;
+      const y = (Math.random() - 0.5) * 20;
+      const z = (Math.random() - 0.5) * 20;
+      const scale = Math.random() * 0.1 + 0.05;
+      temp.push({ x, y, z, scale });
     }
+    return temp;
+  }, [count]);
+
+  useFrame(() => {
+    particles.forEach((particle, i) => {
+      dummy.position.set(particle.x, particle.y, particle.z);
+      dummy.scale.set(particle.scale, particle.scale, particle.scale);
+      dummy.updateMatrix();
+      mesh.current.setMatrixAt(i, dummy.matrix);
+    });
+    mesh.current.instanceMatrix.needsUpdate = true;
+    mesh.current.rotation.y += 0.001;
+    mesh.current.rotation.x += 0.0005;
   });
 
   return (
-    <group ref={groupRef}>
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+    <instancedMesh ref={mesh} args={[null, null, count]}>
+      <sphereGeometry args={[1, 16, 16]} />
+      <meshStandardMaterial color="#06b6d4" transparent opacity={0.4} roughness={0.1} />
+    </instancedMesh>
+  );
+};
+
+export default function Universe() {
+  return (
+    <group>
+      <ParticleGroup count={100} />
       
-      {/* Distant Nebulas / Planets for depth */}
-      <Float speed={1} rotationIntensity={0.5} floatIntensity={1} position={[-20, 10, -50]}>
-        <Sphere args={[5, 64, 64]}>
-          <MeshDistortMaterial color="#7000ff" distort={0.4} speed={2} roughness={0.8} />
+      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+        <Sphere args={[2, 32, 32]} position={[5, 2, -5]}>
+          <meshStandardMaterial color="#ffffff" transparent opacity={0.6} roughness={0.1} metalness={0.1} />
         </Sphere>
       </Float>
       
-      <Float speed={1.5} rotationIntensity={0.8} floatIntensity={1.5} position={[25, -15, -60]}>
-        <Sphere args={[8, 64, 64]}>
-          <MeshDistortMaterial color="#00f0ff" distort={0.3} speed={1.5} roughness={0.5} opacity={0.6} transparent />
+      <Float speed={1.5} rotationIntensity={0.8} floatIntensity={1.5}>
+        <Sphere args={[1.5, 32, 32]} position={[-4, -3, -8]}>
+          <meshStandardMaterial color="#8b5cf6" transparent opacity={0.3} roughness={0.2} />
         </Sphere>
       </Float>
     </group>

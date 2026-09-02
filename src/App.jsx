@@ -13,13 +13,13 @@ import Universe from './components/3d/Universe';
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-space-900 overflow-hidden">
+    <div className="relative min-h-screen bg-slate-50 overflow-hidden">
       {/* Fixed Global 3D Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
-          <ambientLight intensity={0.1} />
-          <directionalLight position={[10, 10, 10]} intensity={1.5} color="#00f0ff" />
-          <directionalLight position={[-10, -10, -10]} intensity={1} color="#7000ff" />
+          <ambientLight intensity={1.5} color="#ffffff" />
+          <directionalLight position={[10, 10, 10]} intensity={2} color="#ffffff" />
+          <directionalLight position={[-10, -10, -10]} intensity={1.5} color="#06b6d4" />
           <Suspense fallback={null}>
             <Universe />
           </Suspense>
@@ -27,7 +27,7 @@ function App() {
       </div>
 
       {/* DOM Content */}
-      <div className="relative z-10 selection:bg-cyan-neon selection:text-space-900">
+      <div className="relative z-10 selection:bg-cyan-200 selection:text-slate-900">
         <Navbar />
         <main>
           <Hero />

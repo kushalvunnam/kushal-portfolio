@@ -33,26 +33,26 @@ export default function HeroObject() {
       {/* Central Core */}
       <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
         <Icosahedron ref={coreRef} args={[1, 1]} position={[0, 0, 0]}>
-          <MeshDistortMaterial color="#00f0ff" distort={0.2} speed={3} roughness={0.2} metalness={0.8} />
+          <MeshDistortMaterial color="#0ea5e9" distort={0.2} speed={3} roughness={0.1} metalness={0.2} />
         </Icosahedron>
         
         {/* Glowing aura */}
-        <Sphere args={[1.2, 32, 32]}>
-          <meshBasicMaterial color="#00f0ff" transparent opacity={0.1} />
+        <Sphere args={[1.3, 32, 32]}>
+          <meshBasicMaterial color="#06b6d4" transparent opacity={0.15} />
         </Sphere>
       </Float>
 
       {/* Orbiting Rings (React-inspired) */}
-      <Torus ref={ring1Ref} args={[2.5, 0.02, 16, 100]} rotation={[Math.PI / 2, 0, 0]}>
-        <meshStandardMaterial color="#7000ff" emissive="#7000ff" emissiveIntensity={2} />
+      <Torus ref={ring1Ref} args={[2.5, 0.04, 16, 100]} rotation={[Math.PI / 2, 0, 0]}>
+        <meshStandardMaterial color="#8b5cf6" metalness={0.3} roughness={0.2} />
       </Torus>
       
-      <Torus ref={ring2Ref} args={[2.5, 0.02, 16, 100]} rotation={[Math.PI / 2, 0, Math.PI / 3]}>
-        <meshStandardMaterial color="#00f0ff" emissive="#00f0ff" emissiveIntensity={1} />
+      <Torus ref={ring2Ref} args={[2.5, 0.04, 16, 100]} rotation={[Math.PI / 2, 0, Math.PI / 3]}>
+        <meshStandardMaterial color="#06b6d4" metalness={0.3} roughness={0.2} />
       </Torus>
       
-      <Torus ref={ring3Ref} args={[2.5, 0.02, 16, 100]} rotation={[Math.PI / 2, 0, -Math.PI / 3]}>
-        <meshStandardMaterial color="#7000ff" emissive="#7000ff" emissiveIntensity={2} />
+      <Torus ref={ring3Ref} args={[2.5, 0.04, 16, 100]} rotation={[Math.PI / 2, 0, -Math.PI / 3]}>
+        <meshStandardMaterial color="#3b82f6" metalness={0.3} roughness={0.2} />
       </Torus>
     </group>
   );
