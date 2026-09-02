@@ -2,8 +2,39 @@ import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { motion } from 'framer-motion';
+import { 
+  FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap, 
+  FaNodeJs, FaDatabase, FaPython, FaGitAlt, FaGithub, FaLaptopCode 
+} from 'react-icons/fa';
+import { 
+  SiTailwindcss, SiExpress, SiMongodb 
+} from 'react-icons/si';
+import { VscVscode } from 'react-icons/vsc';
 import SkillConstellation from './3d/SkillConstellation';
 import { portfolioData } from '../data/content';
+
+const getSkillIcon = (skillName) => {
+  const iconProps = { className: "text-lg transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.8)]", style: { color: 'inherit' } };
+  
+  switch(skillName) {
+    case "HTML": return <FaHtml5 {...iconProps} />;
+    case "CSS": return <FaCss3Alt {...iconProps} />;
+    case "JavaScript": return <FaJs {...iconProps} />;
+    case "React.js": return <FaReact {...iconProps} />;
+    case "Tailwind CSS": return <SiTailwindcss {...iconProps} />;
+    case "Bootstrap": return <FaBootstrap {...iconProps} />;
+    case "Responsive Design": return <FaLaptopCode {...iconProps} />;
+    case "Node.js": return <FaNodeJs {...iconProps} />;
+    case "Express.js": return <SiExpress {...iconProps} />;
+    case "SQL": return <FaDatabase {...iconProps} />;
+    case "MongoDB": return <SiMongodb {...iconProps} />;
+    case "Python": return <FaPython {...iconProps} />;
+    case "Git": return <FaGitAlt {...iconProps} />;
+    case "GitHub": return <FaGithub {...iconProps} />;
+    case "VS Code": return <VscVscode {...iconProps} />;
+    default: return <FaLaptopCode {...iconProps} />;
+  }
+};
 
 const SkillCategory = ({ title, skills, index }) => (
   <motion.div 
@@ -11,18 +42,19 @@ const SkillCategory = ({ title, skills, index }) => (
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6, delay: 0.1 * index }}
-    className="glass-panel p-6 rounded-2xl border border-white/10/50 shadow-glow"
+    className="glass-panel p-6 rounded-2xl border border-white/5 shadow-glow"
   >
     <h3 className="text-lg font-mono text-blue-400 mb-4 tracking-widest">{title}</h3>
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-3">
       {skills.length > 0 ? (
         skills.map((skill, i) => (
-          <span 
+          <div 
             key={i} 
-            className="px-3 py-1.5 text-sm bg-slate-800/80/40 text-gray-200 rounded-full border border-white/10 hover:border-blue-400 hover:bg-blue-900/30 hover:text-cyan-800 transition-colors cursor-default shadow-glow"
+            className="group flex items-center gap-2 px-4 py-2 text-sm bg-slate-900/40 text-gray-200 rounded-full border border-white/10 hover:border-blue-400 hover:bg-blue-900/30 hover:text-white transition-all cursor-default shadow-sm"
           >
-            {skill}
-          </span>
+            {getSkillIcon(skill)}
+            <span className="font-medium">{skill}</span>
+          </div>
         ))
       ) : (
         <span className="text-gray-500 italic text-sm">Waiting for my skills...</span>
@@ -53,12 +85,12 @@ const Skills = () => {
           </div>
 
           {/* 3D Constellation */}
-          <div className="w-full lg:w-1/2 h-[500px] relative glass-panel rounded-3xl border border-white/10 shadow-glass overflow-hidden bg-slate-800/80/40/40">
+          <div className="w-full lg:w-1/2 h-[500px] relative glass-panel rounded-3xl border border-white/5 shadow-glass overflow-hidden bg-slate-900/20">
              <div className="absolute top-4 right-4 text-xs font-mono text-gray-400 z-10">[ 3D Interactive ]</div>
              <Canvas camera={{ position: [0, 0, 7], fov: 45 }} dpr={[1, 2]}>
-               <ambientLight intensity={1.5} />
-               <directionalLight position={[10, 10, 10]} intensity={2} color="#ffffff" />
-               <directionalLight position={[-10, -10, -10]} intensity={2} color="#06b6d4" />
+               <ambientLight intensity={0.5} color="#ffffff" />
+               <directionalLight position={[10, 10, 10]} intensity={1.5} color="#3b82f6" />
+               <directionalLight position={[-10, -10, -10]} intensity={1.5} color="#6366f1" />
                <Suspense fallback={null}>
                  <SkillConstellation />
                </Suspense>
