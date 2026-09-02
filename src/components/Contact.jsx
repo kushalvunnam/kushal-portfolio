@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { portfolioData } from '../data/content';
@@ -6,15 +6,48 @@ import { portfolioData } from '../data/content';
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      setErrorMessage('Please fill in all fields.');
+      setStatus('error');
+      return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage('Please enter a valid email address.');
+      setStatus('error');
+      return;
+    }
+
     setStatus('transmitting');
-    setTimeout(() => {
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to transmit data');
+      }
+
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus(''), 4000);
-    }, 1500);
+      setTimeout(() => setStatus(''), 5000);
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setStatus('error');
+      setErrorMessage('TRANSMISSION FAILED — PLEASE TRY AGAIN');
+    }
   };
 
   return (
@@ -145,15 +178,25 @@ const Contact = () => {
                 className="w-full gradient-btn rounded-xl px-8 py-4 text-center font-mono text-sm tracking-widest uppercase text-white shadow-glow disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="relative z-10 font-bold">
-                  {status === 'transmitting' ? 'Transmitting Data...' : 'Transmit Message'}
+                  {status === 'transmitting' ? 'TRANSMITTING...' : 'TRANSMIT MESSAGE'}
                 </span>
                 <div className="absolute inset-0 bg-blue-500 scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 z-0"></div>
               </button>
 
               {status === 'success' && (
-                <p className="text-emerald-600 text-xs font-mono mt-4 text-center animate-pulse font-bold">
-                  &gt; transmission_successful. awaiting_response.
-                </p>
+                <div className="mt-6 p-4 rounded-xl bg-green-500/10 border border-green-500/30 text-center">
+                  <p className="text-green-400 text-sm font-mono font-bold">
+                    MESSAGE TRANSMITTED SUCCESSFULLY ✓
+                  </p>
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div className="mt-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-center">
+                  <p className="text-red-400 text-sm font-mono font-bold">
+                    {errorMessage || 'TRANSMISSION FAILED — PLEASE TRY AGAIN'}
+                  </p>
+                </div>
               )}
             </form>
           </motion.div>
