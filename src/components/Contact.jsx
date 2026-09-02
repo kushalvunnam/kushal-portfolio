@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { portfolioData } from '../data/content';
@@ -142,7 +142,7 @@ const Contact = () => {
               <button 
                 type="submit" 
                 disabled={status === 'transmitting'}
-                className="w-full group relative overflow-hidden rounded-xl border border-blue-500 bg-blue-900/30 px-8 py-4 text-center font-mono text-sm tracking-widest uppercase text-blue-300 transition-all hover:bg-blue-900/300 hover:text-white shadow-glow disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full gradient-btn rounded-xl px-8 py-4 text-center font-mono text-sm tracking-widest uppercase text-white shadow-glow disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="relative z-10 font-bold">
                   {status === 'transmitting' ? 'Transmitting Data...' : 'Transmit Message'}
@@ -165,3 +165,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaHdd, FaNetworkWired, FaRegFolderOpen, FaTimes } from 'react-icons/fa';
 import { portfolioData } from '../data/content';
@@ -119,7 +119,7 @@ const ProjectTerminal = ({ project, index, onOpenModal }) => {
             {project.liveUrl ? (
               <button 
                 onClick={handleLiveClick}
-                className="group/btn flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 border bg-blue-600/20 text-white hover:bg-blue-600 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] border-blue-500/50"
+                className="group/btn flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 gradient-btn text-white"
                 aria-label="Live Demo"
               >
                 <FaExternalLinkAlt size={12} className="group-hover/btn:scale-110 transition-transform" /> View Project
@@ -127,7 +127,7 @@ const ProjectTerminal = ({ project, index, onOpenModal }) => {
             ) : project.githubUrl ? (
               <button 
                 onClick={handleGithubClick}
-                className="group/btn flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 border bg-blue-600/20 text-white hover:bg-blue-600 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] border-blue-500/50"
+                className="group/btn flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 gradient-btn text-white"
                 aria-label="View Source"
               >
                 <FaExternalLinkAlt size={12} className="group-hover/btn:scale-110 transition-transform" /> View Source
@@ -224,7 +224,7 @@ const ProjectModal = ({ project, onClose }) => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 border bg-slate-800 text-white hover:bg-slate-700 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] border-white/20"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 gradient-btn text-white"
               >
                 <FaGithub /> GitHub
               </a>
@@ -234,7 +234,7 @@ const ProjectModal = ({ project, onClose }) => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 border bg-blue-600/20 text-white hover:bg-blue-600 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] border-blue-500/50"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 gradient-btn text-white"
               >
                 <FaExternalLinkAlt size={12} /> View Project
               </a>
@@ -243,7 +243,7 @@ const ProjectModal = ({ project, onClose }) => {
             {!project.githubUrl && !project.liveUrl && (
               <button 
                 onClick={onClose}
-                className="px-8 py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors shadow-glow"
+                className="px-8 py-3 gradient-btn text-white font-bold rounded-xl shadow-glow"
               >
                 Close
               </button>
@@ -304,3 +304,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
+

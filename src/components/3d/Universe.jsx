@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Sphere, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-const ParticleGroup = ({ count = 300 }) => {
+const ParticleGroup = ({ count = 100, color = "#55c7ff" }) => {
   const mesh = useRef();
   
   const dummy = new THREE.Object3D();
@@ -34,7 +34,7 @@ const ParticleGroup = ({ count = 300 }) => {
   return (
     <instancedMesh ref={mesh} args={[null, null, count]}>
       <sphereGeometry args={[1, 8, 8]} />
-      <meshBasicMaterial color="#3b82f6" transparent opacity={0.6} />
+      <meshBasicMaterial color={color} transparent opacity={0.6} />
     </instancedMesh>
   );
 };
@@ -42,7 +42,11 @@ const ParticleGroup = ({ count = 300 }) => {
 export default function Universe() {
   return (
     <group>
-      <ParticleGroup count={400} />
+      <ParticleGroup count={100} color="#55c7ff" />
+      <ParticleGroup count={100} color="#087cff" />
+      <ParticleGroup count={100} color="#9b7cff" />
+      <ParticleGroup count={100} color="#d47cff" />
     </group>
   );
 }
+

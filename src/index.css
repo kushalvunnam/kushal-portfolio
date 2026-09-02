@@ -1,19 +1,19 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @theme {
-  --color-dark-bg: #0a1128;
-  --color-dark-surface: rgba(15, 23, 42, 0.4);
-  --color-cyan-neon: #3b82f6;
-  --color-purple-neon: #6366f1;
+  --color-dark-bg: #07142f;
+  --color-dark-surface: rgba(20, 55, 110, 0.55);
+  --color-cyan-neon: #55c7ff;
+  --color-purple-neon: #9b7cff;
   --color-text-main: #f8fafc;
   --color-text-muted: #94a3b8;
   
   --font-sans: "Space Grotesk", sans-serif;
   --font-mono: "Fira Code", monospace;
   
-  --shadow-glass: 0 8px 32px 0 rgba(59, 130, 246, 0.05);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(85, 199, 255, 0.3);
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-delayed: float 6s ease-in-out infinite 3s;
@@ -25,9 +25,8 @@
   body {
     background-color: var(--color-dark-bg);
     background-image: 
-      radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.08), transparent 30%),
-      radial-gradient(circle at 80% 30%, rgba(99, 102, 241, 0.08), transparent 30%),
-      radial-gradient(circle at 50% 80%, rgba(37, 99, 235, 0.05), transparent 40%);
+      linear-gradient(135deg, #07142f 0%, #102a63 35%, #24145c 65%, #0b2348 100%);
+    background-attachment: fixed;
     color: var(--color-text-main);
     font-family: var(--font-sans);
     overflow-x: hidden;
@@ -42,31 +41,51 @@
 
 @layer utilities {
   .glass-panel {
-    background: var(--color-dark-surface);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(135deg, rgba(20, 55, 110, 0.55), rgba(55, 25, 100, 0.45));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(80, 170, 255, 0.25);
     box-shadow: var(--shadow-glass);
   }
   
   .glass-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: linear-gradient(135deg, rgba(20, 55, 110, 0.55), rgba(55, 25, 100, 0.45));
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(80, 170, 255, 0.25);
     box-shadow: var(--shadow-glow);
   }
 
   .text-gradient {
-    background: linear-gradient(to right, var(--color-cyan-neon), var(--color-purple-neon));
+    background: linear-gradient(90deg, #ffffff, #55c7ff, #9b7cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  .gradient-btn {
+    background: linear-gradient(90deg, #087cff, #6c3cff);
+    border: none;
+    transition: all 0.3s ease;
+  }
+  .gradient-btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(85, 199, 255, 0.6);
   }
   
   .preserve-3d {
     transform-style: preserve-3d;
   }
 }
+
+/* Section Backgrounds */
+#home { background: linear-gradient(135deg, #071a3d, #123d78, #35206b); }
+#about { background: linear-gradient(135deg, #081b35, #173c68, #261d55); }
+#skills { background: linear-gradient(135deg, #091a3a, #102f61, #321b67); }
+#projects { background: linear-gradient(135deg, #07162f, #132e5c, #2b195d); }
+#education { background: linear-gradient(135deg, #0b1938, #203b69, #30205d); }
+#certifications { background: linear-gradient(135deg, #101c3d, #27366d, #321d5c); }
+#contact { background: linear-gradient(135deg, #081a36, #173d68, #351c62); }
 
 @keyframes float {
   0%, 100% { transform: translateY(0) translateZ(0); }
@@ -83,12 +102,13 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #07142f;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #35206b;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-cyan-vibrant);
+  background: #55c7ff;
 }
+
