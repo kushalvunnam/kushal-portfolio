@@ -45,7 +45,7 @@ export const portfolioData = {
         "Responsive interface",
         "Backend validation"
       ],
-      liveUrl: "",
+      liveUrl: "https://www.mvssautomobiles.com/",
       githubUrl: "https://github.com/kushalvunnam/mvssautomobilesfiles",
       status: "available"
     },
