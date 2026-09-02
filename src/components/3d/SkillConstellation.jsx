@@ -4,14 +4,14 @@ import { Sphere, Line, Text, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 const nodes = [
-  { id: 'react', label: 'React.js', pos: [0, 2, 0], color: '#06b6d4' },
-  { id: 'node', label: 'Node.js', pos: [-2, 1, 1], color: '#8b5cf6' },
-  { id: 'express', label: 'Express.js', pos: [2, 1, -1], color: '#8b5cf6' },
-  { id: 'sql', label: 'SQL', pos: [-1.5, -1, 1.5], color: '#0ea5e9' },
-  { id: 'mongo', label: 'MongoDB', pos: [0, -2, 0], color: '#0ea5e9' },
-  { id: 'tailwind', label: 'Tailwind CSS', pos: [1.5, -1, -1.5], color: '#06b6d4' },
-  { id: 'bootstrap', label: 'Bootstrap', pos: [-3, -0.5, -1], color: '#8b5cf6' },
-  { id: 'python', label: 'Python', pos: [2.5, 0, 1], color: '#0ea5e9' },
+  { id: 'react', label: 'React.js', pos: [0, 2, 0], color: '#3b82f6' },
+  { id: 'node', label: 'Node.js', pos: [-2, 1, 1], color: '#6366f1' },
+  { id: 'express', label: 'Express.js', pos: [2, 1, -1], color: '#6366f1' },
+  { id: 'sql', label: 'SQL', pos: [-1.5, -1, 1.5], color: '#2563eb' },
+  { id: 'mongo', label: 'MongoDB', pos: [0, -2, 0], color: '#2563eb' },
+  { id: 'tailwind', label: 'Tailwind CSS', pos: [1.5, -1, -1.5], color: '#3b82f6' },
+  { id: 'bootstrap', label: 'Bootstrap', pos: [-3, -0.5, -1], color: '#6366f1' },
+  { id: 'python', label: 'Python', pos: [2.5, 0, 1], color: '#2563eb' },
 ];
 
 const edges = [

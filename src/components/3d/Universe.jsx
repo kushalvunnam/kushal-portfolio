@@ -34,7 +34,7 @@ const ParticleGroup = ({ count = 300 }) => {
   return (
     <instancedMesh ref={mesh} args={[null, null, count]}>
       <sphereGeometry args={[1, 8, 8]} />
-      <meshBasicMaterial color="#00f0ff" transparent opacity={0.6} />
+      <meshBasicMaterial color="#3b82f6" transparent opacity={0.6} />
     </instancedMesh>
   );
 };

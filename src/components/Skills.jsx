@@ -13,13 +13,13 @@ const SkillCategory = ({ title, skills, index }) => (
     transition={{ duration: 0.6, delay: 0.1 * index }}
     className="glass-panel p-6 rounded-2xl border border-white/10/50 shadow-glow"
   >
-    <h3 className="text-lg font-mono text-cyan-400 mb-4 tracking-widest">{title}</h3>
+    <h3 className="text-lg font-mono text-blue-400 mb-4 tracking-widest">{title}</h3>
     <div className="flex flex-wrap gap-2">
       {skills.length > 0 ? (
         skills.map((skill, i) => (
           <span 
             key={i} 
-            className="px-3 py-1.5 text-sm bg-slate-800/80/40 text-gray-200 rounded-full border border-white/10 hover:border-cyan-400 hover:bg-cyan-900/30 hover:text-cyan-800 transition-colors cursor-default shadow-glow"
+            className="px-3 py-1.5 text-sm bg-slate-800/80/40 text-gray-200 rounded-full border border-white/10 hover:border-blue-400 hover:bg-blue-900/30 hover:text-cyan-800 transition-colors cursor-default shadow-glow"
           >
             {skill}
           </span>
@@ -37,7 +37,7 @@ const Skills = () => {
       <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
         
         <div className="flex items-center mb-12">
-          <span className="text-cyan-400 font-mono text-xl mr-4 tracking-widest">02.</span>
+          <span className="text-blue-400 font-mono text-xl mr-4 tracking-widest">02.</span>
           <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Technical Arsenal</h2>
           <div className="ml-6 h-[1px] bg-slate-700/50 flex-grow max-w-md"></div>
         </div>

@@ -33,22 +33,22 @@ export default function HeroObject() {
       {/* Central Core */}
       <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
         <Icosahedron ref={coreRef} args={[1, 1]} position={[0, 0, 0]}>
-          <MeshDistortMaterial color="#0ea5e9" distort={0.2} speed={3} roughness={0.1} metalness={0.2} />
+          <MeshDistortMaterial color="#2563eb" distort={0.2} speed={3} roughness={0.1} metalness={0.2} />
         </Icosahedron>
         
         {/* Glowing aura */}
         <Sphere args={[1.3, 32, 32]}>
-          <meshBasicMaterial color="#06b6d4" transparent opacity={0.15} />
+          <meshBasicMaterial color="#3b82f6" transparent opacity={0.15} />
         </Sphere>
       </Float>
 
       {/* Orbiting Rings (React-inspired) */}
       <Torus ref={ring1Ref} args={[2.5, 0.04, 16, 100]} rotation={[Math.PI / 2, 0, 0]}>
-        <meshStandardMaterial color="#8b5cf6" metalness={0.3} roughness={0.2} />
+        <meshStandardMaterial color="#6366f1" metalness={0.3} roughness={0.2} />
       </Torus>
       
       <Torus ref={ring2Ref} args={[2.5, 0.04, 16, 100]} rotation={[Math.PI / 2, 0, Math.PI / 3]}>
-        <meshStandardMaterial color="#06b6d4" metalness={0.3} roughness={0.2} />
+        <meshStandardMaterial color="#3b82f6" metalness={0.3} roughness={0.2} />
       </Torus>
       
       <Torus ref={ring3Ref} args={[2.5, 0.04, 16, 100]} rotation={[Math.PI / 2, 0, -Math.PI / 3]}>

@@ -18,8 +18,8 @@ function App() {
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 10], fov: 60 }} dpr={[1, 2]}>
           <ambientLight intensity={0.2} color="#ffffff" />
-          <directionalLight position={[10, 10, 10]} intensity={1.5} color="#00f0ff" />
-          <directionalLight position={[-10, -10, -10]} intensity={1} color="#b000ff" />
+          <directionalLight position={[10, 10, 10]} intensity={1.5} color="#3b82f6" />
+          <directionalLight position={[-10, -10, -10]} intensity={1} color="#6366f1" />
           <Suspense fallback={null}>
             <Universe />
           </Suspense>

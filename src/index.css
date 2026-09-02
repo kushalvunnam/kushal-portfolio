@@ -4,16 +4,16 @@
 @theme {
   --color-dark-bg: #05050A;
   --color-dark-surface: rgba(15, 23, 42, 0.4);
-  --color-cyan-neon: #00f0ff;
-  --color-purple-neon: #b000ff;
+  --color-cyan-neon: #3b82f6;
+  --color-purple-neon: #6366f1;
   --color-text-main: #f8fafc;
   --color-text-muted: #94a3b8;
   
   --font-sans: "Space Grotesk", sans-serif;
   --font-mono: "Fira Code", monospace;
   
-  --shadow-glass: 0 8px 32px 0 rgba(0, 240, 255, 0.05);
-  --shadow-glow: 0 0 20px rgba(0, 240, 255, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(59, 130, 246, 0.05);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-delayed: float 6s ease-in-out infinite 3s;
@@ -25,9 +25,9 @@
   body {
     background-color: var(--color-dark-bg);
     background-image: 
-      radial-gradient(circle at 20% 20%, rgba(0, 220, 255, 0.08), transparent 30%),
-      radial-gradient(circle at 80% 30%, rgba(176, 0, 255, 0.08), transparent 30%),
-      radial-gradient(circle at 50% 80%, rgba(0, 100, 255, 0.05), transparent 40%);
+      radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.08), transparent 30%),
+      radial-gradient(circle at 80% 30%, rgba(99, 102, 241, 0.08), transparent 30%),
+      radial-gradient(circle at 50% 80%, rgba(37, 99, 235, 0.05), transparent 40%);
     color: var(--color-text-main);
     font-family: var(--font-sans);
     overflow-x: hidden;

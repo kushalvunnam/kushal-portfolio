@@ -18,13 +18,13 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="glass-panel p-8 md:p-10 rounded-3xl relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-200 rounded-full blur-3xl group-hover:bg-cyan-200 transition-colors duration-700 opacity-50"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-200 rounded-full blur-3xl group-hover:bg-blue-500/50 transition-colors duration-700 opacity-50"></div>
             
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-cyan-400 font-mono text-sm mb-3 tracking-widest uppercase font-semibold"
+              className="text-blue-400 font-mono text-sm mb-3 tracking-widest uppercase font-semibold"
             >
               System Online //
             </motion.p>
@@ -42,7 +42,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-purple-600 mb-6"
+              className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-6"
             >
               {portfolioData.personal.role}
             </motion.h2>
@@ -62,9 +62,9 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="flex flex-wrap gap-4"
             >
-              <a href="#projects" className="relative group overflow-hidden bg-slate-800/80/40 border border-cyan-500 text-cyan-400 px-8 py-3 rounded-full font-mono text-sm tracking-wider transition-all shadow-glow hover:shadow-glow">
+              <a href="#projects" className="relative group overflow-hidden bg-slate-800/80/40 border border-blue-500 text-blue-400 px-8 py-3 rounded-full font-mono text-sm tracking-wider transition-all shadow-glow hover:shadow-glow">
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300 font-bold">View My Work</span>
-                <div className="absolute inset-0 bg-cyan-900/300 scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 z-0"></div>
+                <div className="absolute inset-0 bg-blue-900/300 scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 z-0"></div>
               </a>
               <a href="#about" className="px-8 py-3 rounded-full font-mono text-sm tracking-wider text-gray-300 hover:text-slate-900 transition-colors bg-slate-900/20 border border-white/10 hover:bg-slate-800/80/40/80 shadow-glow">
                 About Me
@@ -92,7 +92,7 @@ const Hero = () => {
             />
           </Canvas>
           
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 lg:hidden text-cyan-400 font-mono text-xs uppercase tracking-widest animate-pulse bg-slate-800/80/40/80 px-4 py-1 rounded-full shadow-glow">
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 lg:hidden text-blue-400 font-mono text-xs uppercase tracking-widest animate-pulse bg-slate-800/80/40/80 px-4 py-1 rounded-full shadow-glow">
             [ Interact to Rotate ]
           </div>
         </div>
