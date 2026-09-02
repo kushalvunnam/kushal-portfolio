@@ -47,24 +47,30 @@ const ProjectTerminal = ({ project, index, onOpenModal }) => {
         VIEW DETAILS
       </div>
 
-      {/* 3D Holographic Display Section */}
+      {/* 3D Holographic Display / Image Section */}
       <div className="w-full lg:w-5/12 bg-slate-900/40 relative overflow-hidden flex items-center justify-center min-h-[300px] border-r border-white/10">
-        {/* Hologram Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px] [transform:perspective(500px)_rotateX(60deg)] origin-bottom opacity-50 group-hover:opacity-100 transition-opacity"></div>
-        
-        {/* Hologram Core */}
-        <div className="relative z-10 flex flex-col items-center">
-          <motion.div 
-            animate={{ y: [0, -10, 0] }} 
-            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            className="w-24 h-24 rounded-2xl border border-blue-500/50 flex items-center justify-center bg-slate-800/40 shadow-glow mb-4 group-hover:shadow-blue-500/50 transition-shadow duration-500 relative"
-          >
-            <div className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
-            {getIconForProject(project.title)}
-          </motion.div>
-          <div className="w-20 h-1 bg-blue-300 rounded-full blur-md group-hover:bg-blue-400 transition-colors"></div>
-          <span className="mt-4 font-mono text-xs text-blue-400 uppercase tracking-widest font-bold">Interactive Module</span>
-        </div>
+        {project.image ? (
+          <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+        ) : (
+          <>
+            {/* Hologram Grid */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px] [transform:perspective(500px)_rotateX(60deg)] origin-bottom opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            
+            {/* Hologram Core */}
+            <div className="relative z-10 flex flex-col items-center">
+              <motion.div 
+                animate={{ y: [0, -10, 0] }} 
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                className="w-24 h-24 rounded-2xl border border-blue-500/50 flex items-center justify-center bg-slate-800/40 shadow-glow mb-4 group-hover:shadow-blue-500/50 transition-shadow duration-500 relative"
+              >
+                <div className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                {getIconForProject(project.title)}
+              </motion.div>
+              <div className="w-20 h-1 bg-blue-300 rounded-full blur-md group-hover:bg-blue-400 transition-colors"></div>
+              <span className="mt-4 font-mono text-xs text-blue-400 uppercase tracking-widest font-bold">Interactive Module</span>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Terminal Content Section */}
@@ -161,9 +167,13 @@ const ProjectModal = ({ project, onClose }) => {
         
         <div className="p-8 md:p-10 border-b border-white/5 bg-slate-900/40">
           <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-2xl bg-slate-800/40 border border-blue-500/50 shadow-glow flex items-center justify-center mb-4">
-               <FaRegFolderOpen className="text-3xl text-blue-400" />
-            </div>
+            {project.image ? (
+               <img src={project.image} alt={project.title} className="w-full max-w-sm max-h-[300px] object-cover rounded-xl border border-blue-500/30 shadow-glow mb-6" />
+            ) : (
+              <div className="w-16 h-16 rounded-2xl bg-slate-800/40 border border-blue-500/50 shadow-glow flex items-center justify-center mb-4">
+                 <FaRegFolderOpen className="text-3xl text-blue-400" />
+              </div>
+            )}
             <p className="font-mono text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">{project.category}</p>
             <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
             <p className="text-gray-400 font-medium">Project developed as part of my full-stack development work.</p>

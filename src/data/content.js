@@ -32,6 +32,7 @@ export const portfolioData = {
       ],
       liveUrl: "",
       githubUrl: "https://github.com/kushalvunnam/mvss-erp-backend",
+      image: "/projects/erp-preview.jpg",
       status: "available"
     },
     {
