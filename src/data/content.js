@@ -84,7 +84,26 @@ export const portfolioData = {
       percentageLabel: "Intermediate Percentage"
     }
   ],
-  certifications: [],
+  certifications: [
+    {
+      id: "nayoda-internship",
+      title: "Full Stack Development Internship",
+      organization: "Nayoda",
+      description: "Completed an internship in Full Stack Development, demonstrating good skills and professionalism.",
+      issued: "2026",
+      certificateFile: "/certificates/nayoda-certificate.png",
+      verificationUrl: ""
+    },
+    {
+      id: "mvss-internship",
+      title: "Software Development Internship",
+      organization: "MVSS Automobiles Pvt. Ltd.",
+      description: "Contributed to the design, development, testing, and deployment of the Auto4M Workshop ERP Management System.",
+      issued: "2026",
+      certificateFile: "/certificates/mvss-certificate.jpg",
+      verificationUrl: ""
+    }
+  ],
   languages: [
     { name: "English", level: "Fluent", progress: 90 },
     { name: "Telugu", level: "Native", progress: 100 }

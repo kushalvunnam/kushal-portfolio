@@ -1,9 +1,101 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaAward } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaAward, FaTimes, FaExternalLinkAlt } from 'react-icons/fa';
 import { portfolioData } from '../data/content';
 
+const CertificateModal = ({ certificate, onClose }) => {
+  if (!certificate) return null;
+
+  // Handle escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-slate-900/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-5xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[95vh] relative"
+      >
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 p-2 bg-slate-100 text-slate-500 hover:text-slate-800 hover:bg-slate-200 rounded-full transition-colors z-20 shadow-sm"
+          aria-label="Close preview"
+        >
+          <FaTimes size={18} />
+        </button>
+        
+        {/* Certificate Image Area */}
+        <div className="w-full bg-slate-100 relative overflow-hidden flex items-center justify-center p-4 min-h-[30vh] max-h-[60vh]">
+          {certificate.certificateFile ? (
+            <img 
+              src={certificate.certificateFile} 
+              alt={`${certificate.title} Certificate`} 
+              className="max-w-full max-h-[55vh] object-contain shadow-md rounded-md"
+            />
+          ) : (
+            <div className="text-slate-400 font-mono border-2 border-dashed border-slate-300 p-8 rounded-2xl flex flex-col items-center">
+               <FaAward className="text-4xl mb-2 opacity-50" />
+               <span>No Document Available</span>
+            </div>
+          )}
+        </div>
+        
+        {/* Certificate Details Area */}
+        <div className="p-6 md:p-8 bg-white border-t border-slate-100 flex-shrink-0">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+            <div>
+              <p className="font-mono text-cyan-600 text-xs font-bold uppercase tracking-widest mb-2">CERTIFICATE</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2 leading-tight">{certificate.title}</h3>
+              <div className="flex flex-col gap-1">
+                <p className="text-slate-600 font-medium">Issued by: <span className="font-bold text-slate-800">{certificate.organization}</span></p>
+                <p className="text-slate-500 font-medium text-sm">Issued: {certificate.issued}</p>
+              </div>
+            </div>
+            
+            <div className="flex flex-wrap gap-3 mt-4 md:mt-0">
+               {certificate.verificationUrl && (
+                 <a 
+                   href={certificate.verificationUrl} 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   className="flex items-center gap-2 px-5 py-2.5 bg-white border border-cyan-500 text-cyan-600 font-bold rounded-xl hover:bg-cyan-50 transition-colors shadow-sm"
+                 >
+                   <FaExternalLinkAlt size={12} /> Verify Certificate
+                 </a>
+               )}
+               <button 
+                 onClick={onClose}
+                 className="px-6 py-2.5 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors shadow-md"
+               >
+                 Close
+               </button>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const Certifications = () => {
+  const [selectedCert, setSelectedCert] = useState(null);
+
   return (
     <section id="certifications" className="py-24 relative">
       <div className="absolute right-0 bottom-0 w-[400px] h-[400px] bg-purple-200 rounded-full mix-blend-multiply filter blur-[150px] pointer-events-none opacity-50"></div>
@@ -19,26 +111,37 @@ const Certifications = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioData.certifications.map((cert, index) => (
               <motion.div
-                key={cert.id}
+                key={cert.id || index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10, rotateX: 5 }}
-                className="glass-panel p-8 rounded-3xl border border-white shadow-lg hover:shadow-2xl transition-shadow group relative overflow-hidden bg-white/60"
+                onClick={() => setSelectedCert(cert)}
+                className="glass-panel p-8 rounded-3xl border border-white shadow-lg hover:shadow-2xl transition-all group relative overflow-hidden bg-white/60 cursor-pointer flex flex-col h-full perspective-[1000px]"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter') setSelectedCert(cert); }}
+                aria-label={`View ${cert.title} certificate`}
               >
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-cyan-100 rounded-full blur-2xl group-hover:bg-cyan-200 transition-colors"></div>
                 
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300">
                   <FaAward className="text-2xl text-purple-500 group-hover:text-cyan-500 transition-colors" />
                 </div>
                 
                 <h3 className="text-xl font-bold text-slate-800 mb-2 leading-snug relative z-10">{cert.title}</h3>
-                <p className="text-sm text-slate-500 font-medium mb-4 relative z-10">{cert.issuer}</p>
+                <p className="text-sm text-slate-600 font-bold mb-3 relative z-10">{cert.organization}</p>
+                {cert.description && (
+                  <p className="text-sm text-slate-500 font-medium mb-6 relative z-10 line-clamp-3">{cert.description}</p>
+                )}
                 
-                <div className="mt-auto pt-5 border-t border-slate-200 relative z-10">
+                <div className="mt-auto pt-5 border-t border-slate-200 relative z-10 flex justify-between items-end">
                   <span className="font-mono text-xs font-bold text-cyan-700 bg-cyan-50 px-3 py-1.5 rounded-full border border-cyan-100">
-                    ISSUED {cert.year}
+                    ISSUED {cert.issued || "2026"}
+                  </span>
+                  <span className="text-xs font-bold text-slate-400 group-hover:text-cyan-500 transition-colors">
+                    PREVIEW &rarr;
                   </span>
                 </div>
               </motion.div>
@@ -50,6 +153,15 @@ const Certifications = () => {
           </div>
         )}
       </div>
+
+      <AnimatePresence>
+        {selectedCert && (
+          <CertificateModal 
+            certificate={selectedCert} 
+            onClose={() => setSelectedCert(null)} 
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
