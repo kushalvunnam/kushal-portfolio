@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaHdd, FaNetworkWired, FaRegFolderOpen, FaTimes } from 'react-icons/fa';
 import { portfolioData } from '../data/content';
@@ -47,39 +47,43 @@ const ProjectTerminal = ({ project, index, onOpenModal }) => {
         VIEW DETAILS
       </div>
 
-      {/* 3D Holographic Display Section */}
-      <div className="w-full lg:w-5/12 bg-slate-900/40 relative overflow-hidden flex items-center justify-center min-h-[300px] border-r border-white/10">
-        {/* Hologram Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px] [transform:perspective(500px)_rotateX(60deg)] origin-bottom opacity-50 group-hover:opacity-100 transition-opacity"></div>
-        
-        {/* Hologram Core */}
-        <div className="relative z-10 flex flex-col items-center">
-          <motion.div 
-            animate={{ y: [0, -10, 0] }} 
-            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            className="w-24 h-24 rounded-2xl border border-blue-500/50 flex items-center justify-center bg-slate-800/40 shadow-glow mb-4 group-hover:shadow-blue-500/50 transition-shadow duration-500 relative"
-          >
-            <div className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
-            {getIconForProject(project.title)}
-          </motion.div>
-          <div className="w-20 h-1 bg-blue-300 rounded-full blur-md group-hover:bg-blue-400 transition-colors"></div>
-          <span className="mt-4 font-mono text-xs text-blue-400 uppercase tracking-widest font-bold">Interactive Module</span>
-        </div>
+      {/* 3D Holographic Display / Project Preview Section */}
+      <div className="w-full lg:w-5/12 bg-[#0a1128]/40 relative overflow-hidden flex items-center justify-center min-h-[300px] border-r border-white/10 p-6">
+        {project.image ? (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#55c7ff]/10 to-[#9b7cff]/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#55c7ff]/30 shadow-glass group-hover:shadow-[0_0_20px_rgba(85,199,255,0.3)] transition-all duration-500 transform group-hover:scale-[1.03] bg-[#0a1128]/80 flex items-center justify-center p-2">
+              <img src={project.image} alt={project.title} className="w-full h-full object-contain rounded-xl" />
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Hologram Grid */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px] [transform:perspective(500px)_rotateX(60deg)] origin-bottom opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            
+            {/* Hologram Core */}
+            <div className="relative z-10 flex flex-col items-center">
+              <motion.div 
+                animate={{ y: [0, -10, 0] }} 
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                className="w-24 h-24 rounded-2xl border border-blue-500/50 flex items-center justify-center bg-slate-800/40 shadow-glow mb-4 group-hover:shadow-blue-500/50 transition-shadow duration-500 relative"
+              >
+                <div className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
+                {getIconForProject(project.title)}
+              </motion.div>
+              <div className="w-20 h-1 bg-blue-300 rounded-full blur-md group-hover:bg-blue-400 transition-colors"></div>
+              <span className="mt-4 font-mono text-xs text-blue-400 uppercase tracking-widest font-bold">Interactive Module</span>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Terminal Content Section */}
       <div className="w-full lg:w-7/12 p-8 flex flex-col bg-slate-900/20 relative">
         <div className="flex items-center md:items-start gap-4 mb-4">
-          {project.image && (
-            <img 
-              src={project.image} 
-              alt={`${project.title} Avatar`} 
-              className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border border-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.5)] shrink-0" 
-            />
-          )}
           <div>
-            <p className="font-mono text-indigo-400 text-sm mb-1 font-semibold">{project.category}</p>
-            <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">{project.title}</h3>
+            <p className="font-mono text-[#9b7cff] text-sm mb-1 font-bold uppercase tracking-widest">{project.category}</p>
+            <h3 className="text-2xl font-bold text-white group-hover:text-[#55c7ff] transition-colors">{project.title}</h3>
           </div>
         </div>
 
@@ -156,98 +160,91 @@ const ProjectModal = ({ project, onClose }) => {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         onClick={(e) => e.stopPropagation()}
-        className="glass-panel w-full max-w-2xl bg-slate-800/80 rounded-3xl overflow-hidden shadow-glow flex flex-col relative"
+        className="glass-panel w-full max-w-4xl bg-slate-800/90 rounded-3xl overflow-hidden shadow-glow flex flex-col relative max-h-[90vh] overflow-y-auto"
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 bg-slate-800/50 text-gray-400 hover:text-white hover:bg-slate-700/50 rounded-full transition-colors z-10"
+          className="absolute top-4 right-4 p-2 bg-[#081a36]/80 text-[#55c7ff] hover:text-white hover:bg-[#55c7ff]/20 rounded-full transition-colors z-20 shadow-glow"
           aria-label="Close modal"
         >
           <FaTimes size={16} />
         </button>
         
-        <div className="p-8 md:p-10 border-b border-white/5 bg-slate-900/40">
-          <div className="flex flex-col items-center text-center">
+        <div className="p-8 md:p-10 border-b border-white/5 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#087cff]/10 to-transparent z-0"></div>
+          
+          <div className="flex flex-col items-center text-center relative z-10">
             {project.image ? (
-               <img src={project.image} alt={project.title} className="w-20 h-20 rounded-full object-cover border border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.6)] mb-4" />
+              <div className="w-full max-w-2xl bg-[#0a1128] rounded-2xl p-2 border border-white/10 shadow-[0_0_30px_rgba(85,199,255,0.2)] mb-8">
+                <img src={project.image} alt={project.title} className="w-full h-auto max-h-[400px] object-contain rounded-xl" />
+              </div>
             ) : (
-              <div className="w-16 h-16 rounded-2xl bg-slate-800/40 border border-blue-500/50 shadow-glow flex items-center justify-center mb-4">
-                 <FaRegFolderOpen className="text-3xl text-blue-400" />
+              <div className="w-24 h-24 rounded-2xl bg-slate-800/40 border border-[#55c7ff]/50 shadow-glow flex items-center justify-center mb-6">
+                 <FaRegFolderOpen className="text-4xl text-[#55c7ff]" />
               </div>
             )}
-            <p className="font-mono text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">{project.category}</p>
-            <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
-            <p className="text-gray-400 font-medium">Project developed as part of my full-stack development work.</p>
+            <p className="font-mono text-[#9b7cff] text-sm font-bold uppercase tracking-widest mb-2">{project.category}</p>
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">{project.title}</h3>
           </div>
         </div>
         
         <div className="p-8 md:p-10 bg-slate-800/40">
           <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/5 pb-2">Project Details</h4>
           
-          <div className="space-y-4">
-            <div>
-              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Description</span>
-              <p className="text-gray-300">{project.description}</p>
-            </div>
-            
-            <div>
-              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Key Features</span>
-              <ul className="grid grid-cols-1 gap-1 mt-2">
-                {project.features.map((feature, i) => (
-                  <li key={i} className="text-sm text-gray-300 flex items-start">
-                    <span className="text-blue-400 mr-2">&gt;</span> {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Tech Stack</span>
-              <div className="flex flex-wrap gap-2 mt-2">
-                {project.technologies.map((tech, i) => (
-                  <span key={i} className="text-xs font-mono text-blue-300 bg-blue-900/30 border border-blue-500/30 px-2 py-1 rounded font-semibold">
-                    {tech}
-                  </span>
-                ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div>
+                <span className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Description</span>
+                <p className="text-gray-300 mt-2 leading-relaxed">{project.description}</p>
+              </div>
+              
+              <div>
+                <span className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Key Features</span>
+                <ul className="grid grid-cols-1 gap-2 mt-2">
+                  {project.features.map((feature, i) => (
+                    <li key={i} className="text-sm text-gray-300 flex items-start">
+                      <span className="text-[#55c7ff] mr-2">&gt;</span> {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             
-            <div>
-              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Status</span>
-              <p className="text-blue-400 font-medium text-sm">Active / Available upon request</p>
+            <div className="space-y-6">
+              <div>
+                <span className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Tech Stack</span>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="text-xs font-mono text-white bg-[rgba(20,55,110,0.6)] border border-[#55c7ff]/30 px-3 py-1.5 rounded-lg font-semibold shadow-glow">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="pt-6 border-t border-white/5 flex flex-col gap-3">
+                {project.githubUrl && (
+                  <a 
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 bg-slate-800 text-white hover:bg-slate-700 hover:-translate-y-1 border border-white/20 shadow-glass w-full"
+                  >
+                    <FaGithub size={16} /> GitHub Repository
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a 
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 gradient-btn text-white w-full"
+                  >
+                    <FaExternalLinkAlt size={14} /> Open Live Project
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
-          
-          <div className="mt-8 pt-6 border-t border-white/5 flex justify-center gap-4">
-            {project.githubUrl && (
-              <a 
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 gradient-btn text-white"
-              >
-                <FaGithub /> GitHub
-              </a>
-            )}
-            {project.liveUrl && (
-              <a 
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 gradient-btn text-white"
-              >
-                <FaExternalLinkAlt size={12} /> View Project
-              </a>
-            )}
-            
-            {!project.githubUrl && !project.liveUrl && (
-              <button 
-                onClick={onClose}
-                className="px-8 py-3 gradient-btn text-white font-bold rounded-xl shadow-glow"
-              >
-                Close
-              </button>
-            )}
           </div>
         </div>
       </motion.div>

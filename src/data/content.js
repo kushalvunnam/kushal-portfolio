@@ -1,4 +1,4 @@
-export const portfolioData = {
+﻿export const portfolioData = {
   personal: {
     name: "VUNNAM KUSHAL",
     role: "Full-Stack Developer",
@@ -17,12 +17,12 @@ export const portfolioData = {
     programming: ["Python"],
     tools: ["Git", "GitHub", "VS Code"]
   },
-  projects: [
+    projects: [
     {
       id: "erp",
       title: "ERP Management System",
       category: "Full-Stack Application",
-      description: "A centralized web application to manage business operations. Includes modules for branches, users, products, and customers with role-based access.",
+      description: "A centralized web application to manage business operations, including modules for branches, users, products, and customers with role-based access.",
       technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
       features: [
         "Admin dashboard",
@@ -32,6 +32,7 @@ export const portfolioData = {
       ],
       liveUrl: "",
       githubUrl: "https://github.com/kushalvunnam/mvss-erp-backend",
+      image: "/projects/erp-dashboard.png",
       status: "available"
     },
     {
@@ -47,6 +48,7 @@ export const portfolioData = {
       ],
       liveUrl: "https://www.mvssautomobiles.com/",
       githubUrl: "https://github.com/kushalvunnam/mvssautomobilesfiles",
+      image: "/projects/mvss-login.png",
       status: "available"
     },
     {
@@ -62,16 +64,18 @@ export const portfolioData = {
       ],
       liveUrl: "",
       githubUrl: "",
+      image: "/projects/task-management.jpg",
       status: "available"
     }
   ],
+
   education: [
     {
       id: "btech",
       degree: "B.Tech",
       institution: "Malla Reddy Vishwavidhyapeeth (Deemed-to-be University)",
       location: "Hyderabad, Telangana",
-      period: "2025–2029",
+      period: "2025â€“2029",
       cgpa: "9.48",
       cgpaLabel: "1st Year CGPA"
     },
@@ -80,7 +84,7 @@ export const portfolioData = {
       degree: "Intermediate",
       institution: "Sri Chaitanya Junior College",
       location: "Vijayawada, Andhra Pradesh",
-      period: "2023–2025",
+      period: "2023â€“2025",
       percentage: "97%",
       percentageLabel: "Percentage"
     }
@@ -112,3 +116,4 @@ export const portfolioData = {
   ],
   achievements: []
 };
+
