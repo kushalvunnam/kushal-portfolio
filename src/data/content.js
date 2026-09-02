@@ -6,7 +6,7 @@ export const portfolioData = {
     email: "kushalnxtwave@gmail.com",
     github: "https://github.com/kushalvunnam",
     linkedin: "https://linkedin.com/in/kushalvunnam",
-    phone: "",
+    phone: "+91 8008092742",
     location: "Hyderabad, India"
   },
   about: `I am a passionate Full-Stack Developer focused on building immersive, scalable web applications. I thrive at the intersection of modern UI engineering and robust backend architecture.`,
