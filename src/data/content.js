@@ -13,7 +13,6 @@ export const portfolioData = {
   skills: {
     frontend: ["HTML", "CSS", "JavaScript", "React", "Responsive Design"],
     programming: ["Python", "Java"],
-    machineLearning: ["TensorFlow", "Keras", "Deep Learning", "Image Processing"],
     tools: ["Git", "GitHub", "VS Code"]
   },
   projects: [

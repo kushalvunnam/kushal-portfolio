@@ -8,15 +8,12 @@ const nodes = [
   { id: 'js', label: 'JavaScript', pos: [-2, 1, 1], color: '#00f0ff' },
   { id: 'css', label: 'CSS/HTML', pos: [2, 1, -1], color: '#00f0ff' },
   { id: 'python', label: 'Python', pos: [-1.5, -1, 1.5], color: '#7000ff' },
-  { id: 'tf', label: 'TensorFlow', pos: [0, -2, 0], color: '#7000ff' },
-  { id: 'keras', label: 'Keras', pos: [1.5, -1, -1.5], color: '#7000ff' },
   { id: 'git', label: 'Git/GitHub', pos: [-3, -0.5, -1], color: '#ffffff' },
   { id: 'java', label: 'Java', pos: [3, -0.5, 1], color: '#ffffff' },
 ];
 
 const edges = [
   ['react', 'js'], ['js', 'css'], ['react', 'css'],
-  ['python', 'tf'], ['tf', 'keras'], ['python', 'keras'],
   ['js', 'python'], ['git', 'js'], ['java', 'python']
 ];
 
