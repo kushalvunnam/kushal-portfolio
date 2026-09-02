@@ -32,7 +32,6 @@ export const portfolioData = {
       ],
       liveUrl: "",
       githubUrl: "https://github.com/kushalvunnam/mvss-erp-backend",
-      image: "/projects/erp-preview.jpg",
       status: "available"
     },
     {
@@ -72,7 +71,7 @@ export const portfolioData = {
       degree: "B.Tech",
       institution: "Malla Reddy Vishwavidhyapeeth (Deemed-to-be University)",
       location: "Hyderabad, Telangana",
-      period: "2025 – 2029",
+      period: "2025–2029",
       cgpa: "9.48",
       cgpaLabel: "1st Year CGPA"
     },
@@ -81,9 +80,9 @@ export const portfolioData = {
       degree: "Intermediate",
       institution: "Sri Chaitanya Junior College",
       location: "Vijayawada, Andhra Pradesh",
-      period: "2023 – 2025",
+      period: "2023–2025",
       percentage: "97%",
-      percentageLabel: "Intermediate Percentage"
+      percentageLabel: "Percentage"
     }
   ],
   certifications: [
