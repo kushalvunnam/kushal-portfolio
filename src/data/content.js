@@ -16,7 +16,54 @@ export const portfolioData = {
     database: ["SQL", "MongoDB"],
     tools: []
   },
-  projects: [],
+  projects: [
+    {
+      id: "erp",
+      title: "ERP Management System",
+      category: "Full-Stack Application",
+      description: "A centralized web application to manage business operations. Includes modules for branches, users, products, and customers with role-based access.",
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
+      features: [
+        "Admin dashboard",
+        "Branch management",
+        "CRUD operations",
+        "REST APIs"
+      ],
+      liveUrl: "",
+      githubUrl: "",
+      status: "available"
+    },
+    {
+      id: "mvss",
+      title: "MVSS Management System",
+      category: "Business Dashboard",
+      description: "A practical full-stack management application developed to organize and manage business information through a centralized dashboard.",
+      technologies: ["React.js", "Node.js", "MongoDB"],
+      features: [
+        "Dashboard",
+        "Responsive interface",
+        "Backend validation"
+      ],
+      liveUrl: "",
+      githubUrl: "",
+      status: "available"
+    },
+    {
+      id: "task",
+      title: "Task Management Application",
+      category: "Productivity Tool",
+      description: "A full-stack task management application demonstrating CRUD operations, API communication, and frontend-backend integration.",
+      technologies: ["React.js", "Express.js", "MongoDB"],
+      features: [
+        "CRUD operations",
+        "REST APIs",
+        "Task status tracking"
+      ],
+      liveUrl: "",
+      githubUrl: "",
+      status: "available"
+    }
+  ],
   education: [
     {
       id: "btech",
