@@ -32,7 +32,7 @@
       ],
       liveUrl: "",
       githubUrl: "https://github.com/kushalvunnam/mvss-erp-backend",
-      image: "/projects/erp-dashboard.png",
+      image: "/projects/mvss-login.png",
       status: "available"
     },
     {
@@ -48,7 +48,7 @@
       ],
       liveUrl: "https://www.mvssautomobiles.com/",
       githubUrl: "https://github.com/kushalvunnam/mvssautomobilesfiles",
-      image: "/projects/mvss-login.png",
+      image: "/projects/erp-dashboard.png",
       status: "available"
     },
     {
@@ -116,4 +116,5 @@
   ],
   achievements: []
 };
+
 
