@@ -31,7 +31,7 @@ export const portfolioData = {
         "REST APIs"
       ],
       liveUrl: "",
-      githubUrl: "",
+      githubUrl: "https://github.com/kushalvunnam/mvss-erp-backend",
       status: "available"
     },
     {
@@ -46,7 +46,7 @@ export const portfolioData = {
         "Backend validation"
       ],
       liveUrl: "",
-      githubUrl: "",
+      githubUrl: "https://github.com/kushalvunnam/mvssautomobilesfiles",
       status: "available"
     },
     {
