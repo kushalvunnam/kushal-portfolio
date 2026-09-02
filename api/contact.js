@@ -14,7 +14,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({ error: 'Invalid email address' });
@@ -22,25 +21,25 @@ export default async function handler(req, res) {
 
     const recipient = process.env.CONTACT_EMAIL;
     if (!recipient) {
-      console.error('CONTACT_EMAIL environment variable is missing.');
-      return res.status(500).json({ error: 'Server misconfiguration' });
+      return res.status(500).json({ error: 'Server misconfiguration: CONTACT_EMAIL missing' });
     }
 
-    const data = await resend.emails.send({
+    const response = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: recipient,
-      subject: `New Portfolio Contact — ${name}`,
+      reply_to: email,
+      subject: `New Portfolio Contact - ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\nSent from Vunnam Kushal Portfolio`,
     });
 
-    if (data.error) {
-      console.error('Resend API Error:', data.error);
-      return res.status(400).json({ error: data.error.message });
+    if (response.error) {
+      console.error('Resend API Error:', response.error);
+      return res.status(400).json({ error: response.error.message || 'Error from email service' });
     }
 
-    res.status(200).json({ success: true, data });
+    res.status(200).json({ success: true, data: response.data });
   } catch (error) {
     console.error('Internal Error:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 }
