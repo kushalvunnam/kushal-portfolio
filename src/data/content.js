@@ -11,10 +11,11 @@ export const portfolioData = {
   },
   about: `I am a passionate Full-Stack Developer focused on building immersive, scalable web applications. I thrive at the intersection of modern UI engineering and robust backend architecture.`,
   skills: {
-    frontend: ["React.js", "Bootstrap", "Tailwind CSS"],
+    frontend: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS", "Bootstrap", "Responsive Design"],
     backend: ["Node.js", "Express.js"],
     database: ["SQL", "MongoDB"],
-    tools: []
+    programming: ["Python"],
+    tools: ["Git", "GitHub", "VS Code"]
   },
   projects: [
     {

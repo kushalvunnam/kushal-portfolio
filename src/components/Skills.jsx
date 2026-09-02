@@ -48,7 +48,8 @@ const Skills = () => {
           <div className="w-full lg:w-1/2 space-y-6">
             <SkillCategory title="Frontend Engineering" skills={portfolioData.skills.frontend} index={0} />
             <SkillCategory title="Backend & Database" skills={[...portfolioData.skills.backend, ...portfolioData.skills.database]} index={1} />
-            <SkillCategory title="Tools" skills={portfolioData.skills.tools} index={2} />
+            <SkillCategory title="Programming" skills={portfolioData.skills.programming || []} index={2} />
+            <SkillCategory title="Tools" skills={portfolioData.skills.tools} index={3} />
           </div>
 
           {/* 3D Constellation */}

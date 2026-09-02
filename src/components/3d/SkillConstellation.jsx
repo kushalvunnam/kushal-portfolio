@@ -11,12 +11,13 @@ const nodes = [
   { id: 'mongo', label: 'MongoDB', pos: [0, -2, 0], color: '#0ea5e9' },
   { id: 'tailwind', label: 'Tailwind CSS', pos: [1.5, -1, -1.5], color: '#06b6d4' },
   { id: 'bootstrap', label: 'Bootstrap', pos: [-3, -0.5, -1], color: '#8b5cf6' },
+  { id: 'python', label: 'Python', pos: [2.5, 0, 1], color: '#0ea5e9' },
 ];
 
 const edges = [
   ['react', 'node'], ['node', 'express'], ['react', 'tailwind'],
   ['react', 'bootstrap'], ['node', 'mongo'], ['node', 'sql'],
-  ['express', 'mongo'], ['express', 'sql']
+  ['express', 'mongo'], ['express', 'sql'], ['python', 'mongo']
 ];
 
 function Node({ label, pos, color }) {
