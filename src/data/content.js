@@ -1,11 +1,11 @@
 export const portfolioData = {
   personal: {
-    name: "Shaik Abbas",
-    role: "Frontend Developer | React Developer | Machine Learning Enthusiast",
+    name: "VUNNAM KUSHAL",
+    role: "Backend Developer | Full-Stack Developer | Machine Learning Enthusiast",
     subtitle: "Building modern, interactive and intelligent digital experiences.",
-    email: "kushalnxtwave@gmail.com", // Keeping email as requested (was kushalnxtwave@gmail.com, adapting to context if needed, but will use what's provided or generic)
-    github: "https://github.com/shaikabbas", // Extrapolated from name, adjust as needed
-    linkedin: "https://linkedin.com/in/shaikabbas",
+    email: "kushalnxtwave@gmail.com",
+    github: "https://github.com/kushalvunnam",
+    linkedin: "https://linkedin.com/in/kushalvunnam",
     phone: "+91 0000000000",
     location: "Hyderabad, India"
   },
