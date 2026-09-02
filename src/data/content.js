@@ -1,7 +1,7 @@
 export const portfolioData = {
   personal: {
     name: "VUNNAM KUSHAL",
-    role: "Backend Developer | Full-Stack Developer | Machine Learning Enthusiast",
+    role: "Backend Developer | Full-Stack Developer",
     subtitle: "Building modern, interactive and intelligent digital experiences.",
     email: "kushalnxtwave@gmail.com",
     github: "https://github.com/kushalvunnam",
@@ -9,23 +9,13 @@ export const portfolioData = {
     phone: "+91 0000000000",
     location: "Hyderabad, India"
   },
-  about: `I am a passionate Frontend Developer and Machine Learning Enthusiast focused on building immersive, scalable web applications. I thrive at the intersection of modern UI engineering and intelligent algorithms. With hands-on experience in React and Deep Learning, I enjoy crafting digital experiences that are not only visually stunning but also analytically powerful.`,
+  about: `I am a passionate Backend and Full-Stack Developer focused on building immersive, scalable web applications. I thrive at the intersection of modern UI engineering and robust backend architecture. With hands-on experience in React, Node.js, and databases, I enjoy crafting digital experiences that are visually stunning and functionally powerful.`,
   skills: {
     frontend: ["HTML", "CSS", "JavaScript", "React", "Responsive Design"],
     programming: ["Python", "Java"],
     tools: ["Git", "GitHub", "VS Code"]
   },
   projects: [
-    {
-      id: "agrobuddy",
-      title: "AgroBuddy",
-      subtitle: "M.Tech Project",
-      description: "An intelligent ML & DL framework designed for smart agriculture. It provides actionable insights for crop recommendations, fertilizer suggestions, and plant disease prediction using advanced image processing.",
-      technologies: ["Python", "TensorFlow", "Keras", "Deep Learning"],
-      features: ["Crop recommendations", "Fertilizer suggestions", "Plant disease prediction", "Image processing"],
-      liveUrl: "#",
-      githubUrl: "#"
-    },
     {
       id: "erp",
       title: "ERP Management System",

@@ -30,7 +30,7 @@ const About = () => {
                 </div>
                 <div className="flex-1 font-mono text-sm text-cyan-neon opacity-80 overflow-hidden">
                   <p className="mb-2">&gt; initializing core_modules...</p>
-                  <p className="mb-2 text-purple-400">&gt; loading neural_networks.py [OK]</p>
+                  <p className="mb-2 text-purple-400">&gt; loading backend_services.js [OK]</p>
                   <p className="mb-2">&gt; compiling react_components.jsx [OK]</p>
                   <p className="mb-2 text-green-400">&gt; system ready.</p>
                   <p className="mb-2 mt-6 animate-pulse">_</p>
@@ -44,7 +44,7 @@ const About = () => {
               
               {/* Floating Element 2 */}
               <div className="absolute -left-8 -bottom-8 glass-panel p-4 rounded-xl z-30 group-hover:translate-z-[100px] group-hover:translate-y-4 transition-transform duration-500 animate-float-delayed">
-                <FaMicrochip className="text-3xl text-purple-neon" />
+                <FaTerminal className="text-3xl text-purple-neon" />
               </div>
               
               {/* Background Glow */}
@@ -67,7 +67,7 @@ const About = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
                 <div className="flex items-start">
                   <div className="w-10 h-10 rounded-lg bg-cyan-dim flex items-center justify-center mr-4 border border-cyan-neon/30">
-                    <FaTerminal className="text-cyan-neon" />
+                    <FaCode className="text-cyan-neon" />
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1">Frontend Engineering</h4>
@@ -76,11 +76,11 @@ const About = () => {
                 </div>
                 <div className="flex items-start">
                   <div className="w-10 h-10 rounded-lg bg-purple-dim flex items-center justify-center mr-4 border border-purple-neon/30">
-                    <FaMicrochip className="text-purple-neon" />
+                    <FaTerminal className="text-purple-neon" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium mb-1">Machine Learning</h4>
-                    <p className="text-sm text-gray-400 font-light">Integrating intelligent DL models.</p>
+                    <h4 className="text-white font-medium mb-1">Backend Architecture</h4>
+                    <p className="text-sm text-gray-400 font-light">Designing scalable robust APIs.</p>
                   </div>
                 </div>
               </div>
