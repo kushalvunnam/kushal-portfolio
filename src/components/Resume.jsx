@@ -12,7 +12,7 @@ const Resume = () => {
           whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, type: "spring" }}
-          className="glass-panel p-12 md:p-20 rounded-3xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+          className="glass-panel p-12 md:p-20 rounded-3xl border border-white/10/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
         >
           <p className="text-accent font-mono text-sm mb-4 tracking-widest uppercase">05. What's Next?</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">

@@ -24,7 +24,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-cyan-600 font-mono text-sm mb-3 tracking-widest uppercase font-semibold"
+              className="text-cyan-400 font-mono text-sm mb-3 tracking-widest uppercase font-semibold"
             >
               System Online //
             </motion.p>
@@ -33,7 +33,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="text-5xl md:text-7xl font-bold text-slate-800 mb-2 tracking-tight"
+              className="text-5xl md:text-7xl font-bold text-white mb-2 tracking-tight"
             >
               {portfolioData.personal.name}
             </motion.h1>
@@ -51,7 +51,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="text-slate-600 max-w-xl text-lg mb-10 leading-relaxed font-medium"
+              className="text-gray-300 max-w-xl text-lg mb-10 leading-relaxed font-medium"
             >
               {portfolioData.personal.subtitle}
             </motion.p>
@@ -62,11 +62,11 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="flex flex-wrap gap-4"
             >
-              <a href="#projects" className="relative group overflow-hidden bg-white border border-cyan-500 text-cyan-600 px-8 py-3 rounded-full font-mono text-sm tracking-wider transition-all shadow-md hover:shadow-lg">
+              <a href="#projects" className="relative group overflow-hidden bg-slate-800/80/40 border border-cyan-500 text-cyan-400 px-8 py-3 rounded-full font-mono text-sm tracking-wider transition-all shadow-glow hover:shadow-glow">
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300 font-bold">View My Work</span>
-                <div className="absolute inset-0 bg-cyan-500 scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 z-0"></div>
+                <div className="absolute inset-0 bg-cyan-900/300 scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100 z-0"></div>
               </a>
-              <a href="#about" className="px-8 py-3 rounded-full font-mono text-sm tracking-wider text-slate-600 hover:text-slate-900 transition-colors bg-white/50 border border-slate-200 hover:bg-white/80 shadow-sm">
+              <a href="#about" className="px-8 py-3 rounded-full font-mono text-sm tracking-wider text-gray-300 hover:text-slate-900 transition-colors bg-slate-900/20 border border-white/10 hover:bg-slate-800/80/40/80 shadow-glow">
                 About Me
               </a>
             </motion.div>
@@ -92,7 +92,7 @@ const Hero = () => {
             />
           </Canvas>
           
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 lg:hidden text-cyan-600 font-mono text-xs uppercase tracking-widest animate-pulse bg-white/80 px-4 py-1 rounded-full shadow-sm">
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 lg:hidden text-cyan-400 font-mono text-xs uppercase tracking-widest animate-pulse bg-slate-800/80/40/80 px-4 py-1 rounded-full shadow-glow">
             [ Interact to Rotate ]
           </div>
         </div>

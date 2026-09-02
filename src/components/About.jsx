@@ -22,7 +22,7 @@ const About = () => {
               className="relative w-full aspect-square max-w-md group"
             >
               {/* Main Terminal Window */}
-              <div className="absolute inset-0 glass-panel bg-slate-900 rounded-3xl border border-slate-700 shadow-xl p-6 flex flex-col z-20 group-hover:translate-z-[50px] transition-transform duration-500">
+              <div className="absolute inset-0 glass-panel bg-slate-900 rounded-3xl border border-slate-700 shadow-glass p-6 flex flex-col z-20 group-hover:translate-z-[50px] transition-transform duration-500">
                 <div className="flex gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-red-400"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
@@ -38,12 +38,12 @@ const About = () => {
               </div>
               
               {/* Floating Element 1 */}
-              <div className="absolute -right-8 -top-8 bg-white p-4 rounded-2xl z-30 shadow-lg border border-slate-100 group-hover:translate-z-[80px] group-hover:-translate-y-4 transition-transform duration-500 animate-float">
-                <FaCode className="text-3xl text-cyan-500" />
+              <div className="absolute -right-8 -top-8 bg-slate-800/80/40 p-4 rounded-2xl z-30 shadow-glow border border-white/5 group-hover:translate-z-[80px] group-hover:-translate-y-4 transition-transform duration-500 animate-float">
+                <FaCode className="text-3xl text-cyan-400" />
               </div>
               
               {/* Floating Element 2 */}
-              <div className="absolute -left-8 -bottom-8 bg-white p-4 rounded-2xl z-30 shadow-lg border border-slate-100 group-hover:translate-z-[100px] group-hover:translate-y-4 transition-transform duration-500 animate-float-delayed">
+              <div className="absolute -left-8 -bottom-8 bg-slate-800/80/40 p-4 rounded-2xl z-30 shadow-glow border border-white/5 group-hover:translate-z-[100px] group-hover:translate-y-4 transition-transform duration-500 animate-float-delayed">
                 <FaTerminal className="text-3xl text-purple-500" />
               </div>
               
@@ -54,33 +54,33 @@ const About = () => {
 
           <div className="w-full lg:w-7/12">
             <div className="flex items-center mb-8">
-              <span className="text-cyan-600 font-mono text-xl mr-4 tracking-widest">01.</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">About Me</h2>
-              <div className="ml-6 h-[1px] bg-slate-200 flex-grow"></div>
+              <span className="text-cyan-400 font-mono text-xl mr-4 tracking-widest">01.</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">About Me</h2>
+              <div className="ml-6 h-[1px] bg-slate-700/50 flex-grow"></div>
             </div>
             
-            <div className="glass-panel p-8 md:p-10 rounded-3xl border border-white shadow-xl">
-              <p className="text-slate-600 text-lg font-medium leading-relaxed mb-6">
+            <div className="glass-panel p-8 md:p-10 rounded-3xl border border-white/10 shadow-glass">
+              <p className="text-gray-300 text-lg font-medium leading-relaxed mb-6">
                 {portfolioData.about}
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center mr-4 border border-cyan-100 shadow-sm">
-                    <FaCode className="text-cyan-600 text-xl" />
+                  <div className="w-12 h-12 rounded-xl bg-cyan-900/30 flex items-center justify-center mr-4 border border-cyan-500/30 shadow-glow">
+                    <FaCode className="text-cyan-400 text-xl" />
                   </div>
                   <div>
-                    <h4 className="text-slate-800 font-bold mb-1">Frontend Engineering</h4>
-                    <p className="text-sm text-slate-500">Building complex interactive UIs.</p>
+                    <h4 className="text-white font-bold mb-1">Frontend Engineering</h4>
+                    <p className="text-sm text-gray-400">Building complex interactive UIs.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center mr-4 border border-purple-100 shadow-sm">
-                    <FaTerminal className="text-purple-600 text-xl" />
+                  <div className="w-12 h-12 rounded-xl bg-purple-900/30 flex items-center justify-center mr-4 border border-purple-500/30 shadow-glow">
+                    <FaTerminal className="text-purple-400 text-xl" />
                   </div>
                   <div>
-                    <h4 className="text-slate-800 font-bold mb-1">Backend Architecture</h4>
-                    <p className="text-sm text-slate-500">Designing scalable robust APIs.</p>
+                    <h4 className="text-white font-bold mb-1">Backend Architecture</h4>
+                    <p className="text-sm text-gray-400">Designing scalable robust APIs.</p>
                   </div>
                 </div>
               </div>

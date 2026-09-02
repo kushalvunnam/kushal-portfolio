@@ -26,7 +26,7 @@ const Contact = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-cyan-600 font-mono text-sm mb-3 tracking-widest uppercase font-bold"
+            className="text-cyan-400 font-mono text-sm mb-3 tracking-widest uppercase font-bold"
           >
             06. Communication Protocol
           </motion.p>
@@ -34,7 +34,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-slate-800 tracking-tight"
+            className="text-4xl md:text-5xl font-bold text-white tracking-tight"
           >
             Initiate Contact
           </motion.h2>
@@ -47,51 +47,51 @@ const Contact = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="w-full lg:w-5/12 glass-panel bg-white/70 p-8 md:p-10 rounded-3xl border border-white shadow-xl relative"
+            className="w-full lg:w-5/12 glass-panel bg-slate-900/40 p-8 md:p-10 rounded-3xl border border-white/10 shadow-glass relative"
           >
             <div className="absolute inset-0 bg-gradient-to-b from-cyan-50 to-transparent rounded-3xl pointer-events-none opacity-50"></div>
             
-            <h3 className="text-2xl font-bold text-slate-800 mb-8 relative z-10">Node Data</h3>
+            <h3 className="text-2xl font-bold text-white mb-8 relative z-10">Node Data</h3>
             
             <div className="space-y-6 relative z-10">
               <a href={`mailto:${portfolioData.personal.email}`} className="flex items-center group">
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mr-5 group-hover:border-cyan-300 transition-colors">
-                  <FaEnvelope className="text-cyan-600 text-xl" />
+                <div className="w-14 h-14 rounded-2xl bg-slate-800/80/40 border border-white/5 shadow-glow flex items-center justify-center mr-5 group-hover:border-cyan-300 transition-colors">
+                  <FaEnvelope className="text-cyan-400 text-xl" />
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1 font-bold">Email</p>
-                  <p className="text-slate-700 font-medium group-hover:text-cyan-700 transition-colors">{portfolioData.personal.email}</p>
+                  <p className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-1 font-bold">Email</p>
+                  <p className="text-gray-200 font-medium group-hover:text-cyan-300 transition-colors">{portfolioData.personal.email}</p>
                 </div>
               </a>
 
               {portfolioData.personal.phone && (
                 <a href={`tel:${portfolioData.personal.phone}`} className="flex items-center group">
-                  <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mr-5 group-hover:border-cyan-300 transition-colors">
-                    <FaPhone className="text-cyan-600 text-xl" />
+                  <div className="w-14 h-14 rounded-2xl bg-slate-800/80/40 border border-white/5 shadow-glow flex items-center justify-center mr-5 group-hover:border-cyan-300 transition-colors">
+                    <FaPhone className="text-cyan-400 text-xl" />
                   </div>
                   <div>
-                    <p className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1 font-bold">Comm Link</p>
-                    <p className="text-slate-700 font-medium group-hover:text-cyan-700 transition-colors">{portfolioData.personal.phone}</p>
+                    <p className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-1 font-bold">Comm Link</p>
+                    <p className="text-gray-200 font-medium group-hover:text-cyan-300 transition-colors">{portfolioData.personal.phone}</p>
                   </div>
                 </a>
               )}
 
               <div className="flex items-center">
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mr-5">
-                  <FaMapMarkerAlt className="text-cyan-600 text-xl" />
+                <div className="w-14 h-14 rounded-2xl bg-slate-800/80/40 border border-white/5 shadow-glow flex items-center justify-center mr-5">
+                  <FaMapMarkerAlt className="text-cyan-400 text-xl" />
                 </div>
                 <div>
-                  <p className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1 font-bold">Coordinates</p>
-                  <p className="text-slate-700 font-medium">{portfolioData.personal.location}</p>
+                  <p className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-1 font-bold">Coordinates</p>
+                  <p className="text-gray-200 font-medium">{portfolioData.personal.location}</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 pt-8 border-t border-slate-200 flex gap-4 relative z-10">
-              <a href={portfolioData.personal.github} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-cyan-50 hover:text-cyan-600 transition-colors text-slate-600 border border-slate-100">
+            <div className="mt-12 pt-8 border-t border-white/10 flex gap-4 relative z-10">
+              <a href={portfolioData.personal.github} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-slate-800/80/40 shadow-glow flex items-center justify-center hover:bg-cyan-900/30 hover:text-cyan-400 transition-colors text-gray-300 border border-white/5">
                 <FaGithub size={22} />
               </a>
-              <a href={portfolioData.personal.linkedin} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-cyan-50 hover:text-cyan-600 transition-colors text-slate-600 border border-slate-100">
+              <a href={portfolioData.personal.linkedin} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-slate-800/80/40 shadow-glow flex items-center justify-center hover:bg-cyan-900/30 hover:text-cyan-400 transition-colors text-gray-300 border border-white/5">
                 <FaLinkedin size={22} />
               </a>
             </div>
@@ -104,45 +104,45 @@ const Contact = () => {
             viewport={{ once: true }}
             className="w-full lg:w-7/12"
           >
-            <form onSubmit={handleSubmit} className="glass-panel bg-white/70 p-8 md:p-10 rounded-3xl border border-white shadow-xl h-full flex flex-col">
+            <form onSubmit={handleSubmit} className="glass-panel bg-slate-900/40 p-8 md:p-10 rounded-3xl border border-white/10 shadow-glass h-full flex flex-col">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-xs font-mono text-slate-500 uppercase tracking-widest mb-2 font-bold">Identifier (Name)</label>
+                  <label className="block text-xs font-mono text-gray-400 uppercase tracking-widest mb-2 font-bold">Identifier (Name)</label>
                   <input 
                     type="text" 
                     required 
                     value={formData.name}
                     onChange={e => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 transition-all shadow-sm"
+                    className="w-full bg-slate-800/80/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 transition-all shadow-glow"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-slate-500 uppercase tracking-widest mb-2 font-bold">Return Address (Email)</label>
+                  <label className="block text-xs font-mono text-gray-400 uppercase tracking-widest mb-2 font-bold">Return Address (Email)</label>
                   <input 
                     type="email" 
                     required 
                     value={formData.email}
                     onChange={e => setFormData({...formData, email: e.target.value})}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 transition-all shadow-sm"
+                    className="w-full bg-slate-800/80/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 transition-all shadow-glow"
                   />
                 </div>
               </div>
               
               <div className="mb-8 flex-grow">
-                <label className="block text-xs font-mono text-slate-500 uppercase tracking-widest mb-2 font-bold">Payload (Message)</label>
+                <label className="block text-xs font-mono text-gray-400 uppercase tracking-widest mb-2 font-bold">Payload (Message)</label>
                 <textarea 
                   required 
                   rows="5"
                   value={formData.message}
                   onChange={e => setFormData({...formData, message: e.target.value})}
-                  className="w-full h-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 transition-all shadow-sm resize-none"
+                  className="w-full h-full bg-slate-800/80/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-100 transition-all shadow-glow resize-none"
                 ></textarea>
               </div>
 
               <button 
                 type="submit" 
                 disabled={status === 'transmitting'}
-                className="w-full group relative overflow-hidden rounded-xl border border-cyan-500 bg-cyan-50 px-8 py-4 text-center font-mono text-sm tracking-widest uppercase text-cyan-700 transition-all hover:bg-cyan-500 hover:text-white shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full group relative overflow-hidden rounded-xl border border-cyan-500 bg-cyan-900/30 px-8 py-4 text-center font-mono text-sm tracking-widest uppercase text-cyan-300 transition-all hover:bg-cyan-900/300 hover:text-white shadow-glow disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="relative z-10 font-bold">
                   {status === 'transmitting' ? 'Transmitting Data...' : 'Transmit Message'}

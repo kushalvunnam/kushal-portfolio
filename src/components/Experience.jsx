@@ -9,7 +9,7 @@ const Experience = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 flex items-center">
             <span className="text-accent font-mono text-xl mr-3">04.</span> 
             Experience & Practical Work
-            <div className="ml-6 h-[1px] bg-white/10 flex-grow max-w-xs"></div>
+            <div className="ml-6 h-[1px] bg-slate-800/80/40/10 flex-grow max-w-xs"></div>
           </h2>
         </div>
 
@@ -18,11 +18,11 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative border-l border-white/20 ml-3 md:ml-6 pl-10 py-6"
+          className="relative border-l border-white/10/20 ml-3 md:ml-6 pl-10 py-6"
         >
           <div className="absolute -left-[5px] top-8 h-2.5 w-2.5 rounded-full bg-accent shadow-[0_0_10px_#3b82f6]"></div>
           
-          <div className="glass-panel p-8 rounded-xl border border-white/5 hover:border-accent/30 transition-colors duration-300">
+          <div className="glass-panel p-8 rounded-xl border border-white/10/5 hover:border-accent/30 transition-colors duration-300">
             <h3 className="text-2xl font-bold text-white mb-2 tracking-wide">Full-Stack Development Projects</h3>
             <p className="text-accent font-mono text-sm mb-6">Self-Directed & Practical Application</p>
             

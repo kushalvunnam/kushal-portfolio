@@ -31,11 +31,11 @@ function Node({ label, pos, color }) {
       <Text 
         position={[0, 0.4, 0]} 
         fontSize={0.25} 
-        color={hovered ? '#f43f5e' : '#334155'} 
+        color={hovered ? '#f43f5e' : '#ffffff'} 
         anchorX="center" 
         anchorY="middle"
         outlineWidth={0.02}
-        outlineColor="#ffffff"
+        outlineColor="#0f172a"
       >
         {label}
       </Text>

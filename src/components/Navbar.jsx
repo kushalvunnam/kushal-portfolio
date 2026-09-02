@@ -49,9 +49,9 @@ const Navbar = () => {
         <div className={`flex justify-between items-center transition-all duration-500 ${scrolled ? 'glass-panel rounded-full px-6 py-3' : 'px-2'}`}>
           
           {/* Logo */}
-          <a href="#home" className="text-2xl font-bold font-sans text-slate-800 tracking-tighter flex items-center gap-2 group">
-            <span className="text-cyan-600 group-hover:text-purple-600 transition-colors duration-300">{initials}.</span>
-            <span className="hidden sm:block text-sm font-bold text-slate-400 font-mono tracking-widest uppercase">System</span>
+          <a href="#home" className="text-2xl font-bold font-sans text-white tracking-tighter flex items-center gap-2 group">
+            <span className="text-cyan-400 group-hover:text-purple-400 transition-colors duration-300">{initials}.</span>
+            <span className="hidden sm:block text-sm font-bold text-gray-500 font-mono tracking-widest uppercase">System</span>
           </a>
 
           {/* Desktop Nav */}
@@ -61,14 +61,14 @@ const Navbar = () => {
                 key={link.name} 
                 href={link.href} 
                 className={`relative px-4 py-2 text-sm font-medium transition-colors font-mono ${
-                  activeSection === link.name.toLowerCase() ? 'text-cyan-600 font-bold' : 'text-slate-500 hover:text-slate-800'
+                  activeSection === link.name.toLowerCase() ? 'text-cyan-400 font-bold' : 'text-gray-400 hover:text-white'
                 }`}
               >
                 {link.name}
                 {activeSection === link.name.toLowerCase() && (
                   <motion.div 
                     layoutId="navIndicator"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-cyan-500 rounded-full"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-cyan-900/300 rounded-full"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
@@ -77,7 +77,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Nav Toggle */}
-          <button className="lg:hidden text-cyan-600 p-2 focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
+          <button className="lg:hidden text-cyan-400 p-2 focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <HiX size={28} /> : <HiMenu size={28} />}
           </button>
         </div>
@@ -91,7 +91,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden absolute top-full left-4 right-4 mt-2 glass-panel rounded-2xl py-4 flex flex-col items-center space-y-1 border border-cyan-100 overflow-hidden"
+            className="lg:hidden absolute top-full left-4 right-4 mt-2 glass-panel rounded-2xl py-4 flex flex-col items-center space-y-1 border border-cyan-500/30 overflow-hidden"
           >
             {links.map((link) => (
               <a 
@@ -99,7 +99,7 @@ const Navbar = () => {
                 href={link.href} 
                 onClick={() => setIsOpen(false)}
                 className={`w-full text-center py-3 text-sm font-mono tracking-wider ${
-                  activeSection === link.name.toLowerCase() ? 'text-cyan-700 bg-cyan-50 font-bold border-l-4 border-cyan-500' : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
+                  activeSection === link.name.toLowerCase() ? 'text-cyan-300 bg-cyan-900/30 font-bold border-l-4 border-cyan-500' : 'text-gray-400 hover:text-white hover:bg-slate-900/40'
                 } transition-all`}
               >
                 {link.name}

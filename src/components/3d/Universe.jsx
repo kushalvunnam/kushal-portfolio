@@ -3,17 +3,17 @@ import { useFrame } from '@react-three/fiber';
 import { Sphere, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-const ParticleGroup = ({ count = 50 }) => {
+const ParticleGroup = ({ count = 300 }) => {
   const mesh = useRef();
   
   const dummy = new THREE.Object3D();
   const particles = React.useMemo(() => {
     const temp = [];
     for (let i = 0; i < count; i++) {
-      const x = (Math.random() - 0.5) * 20;
-      const y = (Math.random() - 0.5) * 20;
-      const z = (Math.random() - 0.5) * 20;
-      const scale = Math.random() * 0.1 + 0.05;
+      const x = (Math.random() - 0.5) * 40;
+      const y = (Math.random() - 0.5) * 40;
+      const z = (Math.random() - 0.5) * 40;
+      const scale = Math.random() * 0.05 + 0.02;
       temp.push({ x, y, z, scale });
     }
     return temp;
@@ -27,14 +27,14 @@ const ParticleGroup = ({ count = 50 }) => {
       mesh.current.setMatrixAt(i, dummy.matrix);
     });
     mesh.current.instanceMatrix.needsUpdate = true;
-    mesh.current.rotation.y += 0.001;
-    mesh.current.rotation.x += 0.0005;
+    mesh.current.rotation.y += 0.0005;
+    mesh.current.rotation.x += 0.0002;
   });
 
   return (
     <instancedMesh ref={mesh} args={[null, null, count]}>
-      <sphereGeometry args={[1, 16, 16]} />
-      <meshStandardMaterial color="#06b6d4" transparent opacity={0.4} roughness={0.1} />
+      <sphereGeometry args={[1, 8, 8]} />
+      <meshBasicMaterial color="#00f0ff" transparent opacity={0.6} />
     </instancedMesh>
   );
 };
@@ -42,19 +42,7 @@ const ParticleGroup = ({ count = 50 }) => {
 export default function Universe() {
   return (
     <group>
-      <ParticleGroup count={100} />
-      
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-        <Sphere args={[2, 32, 32]} position={[5, 2, -5]}>
-          <meshStandardMaterial color="#ffffff" transparent opacity={0.6} roughness={0.1} metalness={0.1} />
-        </Sphere>
-      </Float>
-      
-      <Float speed={1.5} rotationIntensity={0.8} floatIntensity={1.5}>
-        <Sphere args={[1.5, 32, 32]} position={[-4, -3, -8]}>
-          <meshStandardMaterial color="#8b5cf6" transparent opacity={0.3} roughness={0.2} />
-        </Sphere>
-      </Float>
+      <ParticleGroup count={400} />
     </group>
   );
 }

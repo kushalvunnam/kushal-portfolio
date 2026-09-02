@@ -2,18 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @theme {
-  --color-light-bg: #f8fafc;
-  --color-light-surface: #ffffff;
-  --color-cyan-vibrant: #06b6d4;
-  --color-purple-vibrant: #8b5cf6;
-  --color-text-main: #0f172a;
-  --color-text-muted: #475569;
+  --color-dark-bg: #05050A;
+  --color-dark-surface: rgba(15, 23, 42, 0.4);
+  --color-cyan-neon: #00f0ff;
+  --color-purple-neon: #b000ff;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
   
   --font-sans: "Space Grotesk", sans-serif;
   --font-mono: "Fira Code", monospace;
   
-  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
-  --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 240, 255, 0.05);
+  --shadow-glow: 0 0 20px rgba(0, 240, 255, 0.3);
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-delayed: float 6s ease-in-out infinite 3s;
@@ -23,7 +23,11 @@
 
 @layer base {
   body {
-    background-color: var(--color-light-bg);
+    background-color: var(--color-dark-bg);
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(0, 220, 255, 0.08), transparent 30%),
+      radial-gradient(circle at 80% 30%, rgba(176, 0, 255, 0.08), transparent 30%),
+      radial-gradient(circle at 50% 80%, rgba(0, 100, 255, 0.05), transparent 40%);
     color: var(--color-text-main);
     font-family: var(--font-sans);
     overflow-x: hidden;
@@ -38,22 +42,22 @@
 
 @layer utilities {
   .glass-panel {
-    background: rgba(255, 255, 255, 0.7);
+    background: var(--color-dark-surface);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: var(--shadow-glass);
   }
   
   .glass-card {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-glow);
   }
 
   .text-gradient {
-    background: linear-gradient(to right, var(--color-cyan-vibrant), var(--color-purple-vibrant));
+    background: linear-gradient(to right, var(--color-cyan-neon), var(--color-purple-neon));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

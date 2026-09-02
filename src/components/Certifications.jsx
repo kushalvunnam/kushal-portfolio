@@ -30,26 +30,26 @@ const CertificateModal = ({ certificate, onClose }) => {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-5xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[95vh] relative"
+        className="w-full max-w-5xl bg-slate-800/80/40 rounded-3xl overflow-hidden shadow-glow flex flex-col max-h-[95vh] relative"
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 bg-slate-100 text-slate-500 hover:text-slate-800 hover:bg-slate-200 rounded-full transition-colors z-20 shadow-sm"
+          className="absolute top-4 right-4 p-2 bg-slate-800/80/50 text-gray-400 hover:text-white hover:bg-slate-700/80/50 rounded-full transition-colors z-20 shadow-glow"
           aria-label="Close preview"
         >
           <FaTimes size={18} />
         </button>
         
         {/* Certificate Image Area */}
-        <div className="w-full bg-slate-100 relative overflow-hidden flex items-center justify-center p-4 min-h-[30vh] max-h-[60vh]">
+        <div className="w-full bg-slate-800/80/50 relative overflow-hidden flex items-center justify-center p-4 min-h-[30vh] max-h-[60vh]">
           {certificate.certificateFile ? (
             <img 
               src={certificate.certificateFile} 
               alt={`${certificate.title} Certificate`} 
-              className="max-w-full max-h-[55vh] object-contain shadow-md rounded-md"
+              className="max-w-full max-h-[55vh] object-contain shadow-glow rounded-md"
             />
           ) : (
-            <div className="text-slate-400 font-mono border-2 border-dashed border-slate-300 p-8 rounded-2xl flex flex-col items-center">
+            <div className="text-gray-500 font-mono border-2 border-dashed border-slate-300 p-8 rounded-2xl flex flex-col items-center">
                <FaAward className="text-4xl mb-2 opacity-50" />
                <span>No Document Available</span>
             </div>
@@ -57,14 +57,14 @@ const CertificateModal = ({ certificate, onClose }) => {
         </div>
         
         {/* Certificate Details Area */}
-        <div className="p-6 md:p-8 bg-white border-t border-slate-100 flex-shrink-0">
+        <div className="p-6 md:p-8 bg-slate-800/80/40 border-t border-white/5 flex-shrink-0">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
             <div>
-              <p className="font-mono text-cyan-600 text-xs font-bold uppercase tracking-widest mb-2">CERTIFICATE</p>
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-2 leading-tight">{certificate.title}</h3>
+              <p className="font-mono text-cyan-400 text-xs font-bold uppercase tracking-widest mb-2">CERTIFICATE</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">{certificate.title}</h3>
               <div className="flex flex-col gap-1">
-                <p className="text-slate-600 font-medium">Issued by: <span className="font-bold text-slate-800">{certificate.organization}</span></p>
-                <p className="text-slate-500 font-medium text-sm">Issued: {certificate.issued}</p>
+                <p className="text-gray-300 font-medium">Issued by: <span className="font-bold text-white">{certificate.organization}</span></p>
+                <p className="text-gray-400 font-medium text-sm">Issued: {certificate.issued}</p>
               </div>
             </div>
             
@@ -74,14 +74,14 @@ const CertificateModal = ({ certificate, onClose }) => {
                    href={certificate.verificationUrl} 
                    target="_blank" 
                    rel="noopener noreferrer"
-                   className="flex items-center gap-2 px-5 py-2.5 bg-white border border-cyan-500 text-cyan-600 font-bold rounded-xl hover:bg-cyan-50 transition-colors shadow-sm"
+                   className="flex items-center gap-2 px-5 py-2.5 bg-slate-800/80/40 border border-cyan-500 text-cyan-400 font-bold rounded-xl hover:bg-cyan-900/30 transition-colors shadow-glow"
                  >
                    <FaExternalLinkAlt size={12} /> Verify Certificate
                  </a>
                )}
                <button 
                  onClick={onClose}
-                 className="px-6 py-2.5 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors shadow-md"
+                 className="px-6 py-2.5 bg-slate-800/80 text-white font-bold rounded-xl hover:bg-slate-700/80 transition-colors shadow-glow"
                >
                  Close
                </button>
@@ -102,9 +102,9 @@ const Certifications = () => {
 
       <div className="container mx-auto px-6 md:px-12 max-w-6xl relative z-10">
         <div className="flex items-center mb-16">
-          <span className="text-cyan-600 font-mono text-xl mr-4 tracking-widest">05.</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 tracking-tight">Credentials</h2>
-          <div className="ml-6 h-[1px] bg-slate-200 flex-grow max-w-sm"></div>
+          <span className="text-cyan-400 font-mono text-xl mr-4 tracking-widest">05.</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Credentials</h2>
+          <div className="ml-6 h-[1px] bg-slate-700/50 flex-grow max-w-sm"></div>
         </div>
 
         {portfolioData.certifications && portfolioData.certifications.length > 0 ? (
@@ -118,7 +118,7 @@ const Certifications = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10, rotateX: 5 }}
                 onClick={() => setSelectedCert(cert)}
-                className="glass-panel p-8 rounded-3xl border border-white shadow-lg hover:shadow-2xl transition-all group relative overflow-hidden bg-white/60 cursor-pointer flex flex-col h-full perspective-[1000px]"
+                className="glass-panel p-8 rounded-3xl border border-white/10 shadow-glow hover:shadow-glow transition-all group relative overflow-hidden bg-slate-900/40 cursor-pointer flex flex-col h-full perspective-[1000px]"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => { if (e.key === 'Enter') setSelectedCert(cert); }}
@@ -126,21 +126,21 @@ const Certifications = () => {
               >
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-cyan-100 rounded-full blur-2xl group-hover:bg-cyan-200 transition-colors"></div>
                 
-                <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300">
-                  <FaAward className="text-2xl text-purple-500 group-hover:text-cyan-500 transition-colors" />
+                <div className="w-14 h-14 rounded-2xl bg-slate-800/80/40 border border-white/5 shadow-glow flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform duration-300">
+                  <FaAward className="text-2xl text-purple-500 group-hover:text-cyan-400 transition-colors" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-slate-800 mb-2 leading-snug relative z-10">{cert.title}</h3>
-                <p className="text-sm text-slate-600 font-bold mb-3 relative z-10">{cert.organization}</p>
+                <h3 className="text-xl font-bold text-white mb-2 leading-snug relative z-10">{cert.title}</h3>
+                <p className="text-sm text-gray-300 font-bold mb-3 relative z-10">{cert.organization}</p>
                 {cert.description && (
-                  <p className="text-sm text-slate-500 font-medium mb-6 relative z-10 line-clamp-3">{cert.description}</p>
+                  <p className="text-sm text-gray-400 font-medium mb-6 relative z-10 line-clamp-3">{cert.description}</p>
                 )}
                 
-                <div className="mt-auto pt-5 border-t border-slate-200 relative z-10 flex justify-between items-end">
-                  <span className="font-mono text-xs font-bold text-cyan-700 bg-cyan-50 px-3 py-1.5 rounded-full border border-cyan-100">
+                <div className="mt-auto pt-5 border-t border-white/10 relative z-10 flex justify-between items-end">
+                  <span className="font-mono text-xs font-bold text-cyan-300 bg-cyan-900/30 px-3 py-1.5 rounded-full border border-cyan-500/30">
                     ISSUED {cert.issued || "2026"}
                   </span>
-                  <span className="text-xs font-bold text-slate-400 group-hover:text-cyan-500 transition-colors">
+                  <span className="text-xs font-bold text-gray-500 group-hover:text-cyan-400 transition-colors">
                     PREVIEW &rarr;
                   </span>
                 </div>
@@ -148,8 +148,8 @@ const Certifications = () => {
             ))}
           </div>
         ) : (
-          <div className="w-full glass-panel rounded-3xl p-12 text-center border border-white shadow-md">
-            <p className="text-slate-500 font-medium">Waiting for certifications data...</p>
+          <div className="w-full glass-panel rounded-3xl p-12 text-center border border-white/10 shadow-glow">
+            <p className="text-gray-400 font-medium">Waiting for certifications data...</p>
           </div>
         )}
       </div>
