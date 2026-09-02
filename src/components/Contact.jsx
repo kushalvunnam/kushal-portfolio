@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { portfolioData } from '../data/content';
@@ -46,7 +46,7 @@ const Contact = () => {
     } catch (error) {
       console.error('Contact form error:', error);
       setStatus('error');
-      setErrorMessage('TRANSMISSION FAILED — PLEASE TRY AGAIN');
+      setErrorMessage('TRANSMISSION FAILED â€” PLEASE TRY AGAIN');
     }
   };
 
@@ -186,7 +186,7 @@ const Contact = () => {
               {status === 'success' && (
                 <div className="mt-6 p-4 rounded-xl bg-green-500/10 border border-green-500/30 text-center">
                   <p className="text-green-400 text-sm font-mono font-bold">
-                    MESSAGE TRANSMITTED SUCCESSFULLY ✓
+                    MESSAGE TRANSMITTED SUCCESSFULLY âœ“
                   </p>
                 </div>
               )}
@@ -194,7 +194,7 @@ const Contact = () => {
               {status === 'error' && (
                 <div className="mt-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-center">
                   <p className="text-red-400 text-sm font-mono font-bold">
-                    {errorMessage || 'TRANSMISSION FAILED — PLEASE TRY AGAIN'}
+                    {errorMessage || 'TRANSMISSION FAILED â€” PLEASE TRY AGAIN'}
                   </p>
                 </div>
               )}
@@ -208,5 +208,6 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
 
