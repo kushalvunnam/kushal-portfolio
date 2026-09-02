@@ -12,21 +12,13 @@ const getIconForProject = (title) => {
 
 const ProjectTerminal = ({ project, index, onOpenModal }) => {
   const handleCardClick = () => {
-    if (project.liveUrl) {
-      window.open(project.liveUrl, '_blank', 'noopener noreferrer');
-    } else if (project.githubUrl) {
-      window.open(project.githubUrl, '_blank', 'noopener noreferrer');
-    } else {
-      onOpenModal(project);
-    }
+    onOpenModal(project);
   };
 
   const handleLiveClick = (e) => {
     e.stopPropagation();
     if (project.liveUrl) {
       window.open(project.liveUrl, '_blank', 'noopener noreferrer');
-    } else {
-      onOpenModal(project);
     }
   };
 
@@ -34,8 +26,6 @@ const ProjectTerminal = ({ project, index, onOpenModal }) => {
     e.stopPropagation();
     if (project.githubUrl) {
       window.open(project.githubUrl, '_blank', 'noopener noreferrer');
-    } else {
-      onOpenModal(project);
     }
   };
 
@@ -53,22 +43,21 @@ const ProjectTerminal = ({ project, index, onOpenModal }) => {
       aria-label={`View project details for ${project.title}`}
       onKeyDown={(e) => { if (e.key === 'Enter') handleCardClick(); }}
     >
-      {/* Visual indicator for interactivity */}
       <div className="absolute top-4 right-4 bg-blue-900/30 text-blue-400 px-3 py-1 rounded-full text-xs font-bold font-mono opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-4 group-hover:translate-x-0 duration-300 z-20 border border-blue-500/30 shadow-glow">
-        {project.liveUrl ? 'OPEN LIVE →' : (project.githubUrl ? 'VIEW SOURCE →' : 'VIEW DETAILS →')}
+        VIEW DETAILS
       </div>
 
       {/* 3D Holographic Display Section */}
       <div className="w-full lg:w-5/12 bg-slate-900/40 relative overflow-hidden flex items-center justify-center min-h-[300px] border-r border-white/10">
         {/* Hologram Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.1)_1px,transparent_1px)] bg-[size:20px_20px] [transform:perspective(500px)_rotateX(60deg)] origin-bottom opacity-50 group-hover:opacity-100 transition-opacity"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px] [transform:perspective(500px)_rotateX(60deg)] origin-bottom opacity-50 group-hover:opacity-100 transition-opacity"></div>
         
         {/* Hologram Core */}
         <div className="relative z-10 flex flex-col items-center">
           <motion.div 
             animate={{ y: [0, -10, 0] }} 
             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            className="w-24 h-24 rounded-2xl border border-blue-500/50 flex items-center justify-center bg-slate-800/80/40 shadow-glow mb-4 group-hover:shadow-blue-500/50 transition-shadow duration-500 relative"
+            className="w-24 h-24 rounded-2xl border border-blue-500/50 flex items-center justify-center bg-slate-800/40 shadow-glow mb-4 group-hover:shadow-blue-500/50 transition-shadow duration-500 relative"
           >
             <div className="absolute inset-0 bg-blue-400 opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300"></div>
             {getIconForProject(project.title)}
@@ -110,20 +99,33 @@ const ProjectTerminal = ({ project, index, onOpenModal }) => {
           </div>
           
           <div className="flex gap-2 shrink-0">
-            <button 
-              onClick={handleGithubClick}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-bold transition-colors border ${project.githubUrl ? 'bg-slate-800/80 text-white hover:bg-slate-700/80 border-white/20' : 'bg-slate-800/80/50 text-gray-500 border-white/10 cursor-not-allowed hover:bg-slate-700/80/50'}`}
-              aria-label="GitHub Repository"
-            >
-              <FaGithub /> {project.githubUrl ? 'Source' : 'Private'}
-            </button>
-            <button 
-              onClick={handleLiveClick}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-bold transition-colors border ${project.liveUrl ? 'bg-blue-900/300 text-white hover:bg-blue-500 border-blue-500' : 'bg-slate-800/80/50 text-gray-500 border-white/10 cursor-not-allowed hover:bg-slate-700/80/50'}`}
-              aria-label="Live Demo"
-            >
-              <FaExternalLinkAlt size={12} /> {project.liveUrl ? 'Live Demo' : 'Coming Soon'}
-            </button>
+            {project.githubUrl && (
+              <button 
+                onClick={handleGithubClick}
+                className="group/btn flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 border bg-slate-800/80 text-white hover:bg-slate-700 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] border-white/20"
+                aria-label="GitHub Repository"
+              >
+                <FaGithub className="group-hover/btn:scale-110 transition-transform" /> GitHub
+              </button>
+            )}
+            
+            {project.liveUrl ? (
+              <button 
+                onClick={handleLiveClick}
+                className="group/btn flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 border bg-blue-600/20 text-white hover:bg-blue-600 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] border-blue-500/50"
+                aria-label="Live Demo"
+              >
+                <FaExternalLinkAlt size={12} className="group-hover/btn:scale-110 transition-transform" /> View Project
+              </button>
+            ) : project.githubUrl ? (
+              <button 
+                onClick={handleGithubClick}
+                className="group/btn flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 border bg-blue-600/20 text-white hover:bg-blue-600 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] border-blue-500/50"
+                aria-label="View Source"
+              >
+                <FaExternalLinkAlt size={12} className="group-hover/btn:scale-110 transition-transform" /> View Source
+              </button>
+            ) : null}
           </div>
         </div>
       </div>
@@ -147,39 +149,45 @@ const ProjectModal = ({ project, onClose }) => {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         onClick={(e) => e.stopPropagation()}
-        className="glass-panel w-full max-w-2xl bg-slate-800/80/40 rounded-3xl overflow-hidden shadow-glow flex flex-col relative"
+        className="glass-panel w-full max-w-2xl bg-slate-800/80 rounded-3xl overflow-hidden shadow-glow flex flex-col relative"
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 bg-slate-800/80/50 text-gray-400 hover:text-white hover:bg-slate-700/80/50 rounded-full transition-colors z-10"
+          className="absolute top-4 right-4 p-2 bg-slate-800/50 text-gray-400 hover:text-white hover:bg-slate-700/50 rounded-full transition-colors z-10"
           aria-label="Close modal"
         >
           <FaTimes size={16} />
         </button>
         
-        <div className="p-8 md:p-10 border-b border-white/5 bg-slate-900/40/50">
+        <div className="p-8 md:p-10 border-b border-white/5 bg-slate-900/40">
           <div className="flex flex-col items-center text-center">
-            <div className="w-16 h-16 rounded-2xl bg-slate-800/80/40 border border-blue-500/50 shadow-glow flex items-center justify-center mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-slate-800/40 border border-blue-500/50 shadow-glow flex items-center justify-center mb-4">
                <FaRegFolderOpen className="text-3xl text-blue-400" />
             </div>
-            <p className="font-mono text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">Project Unavailable</p>
-            <h3 className="text-3xl font-bold text-white mb-2">Demo Coming Soon</h3>
-            <p className="text-gray-400 font-medium">The live environment or source repository for <span className="font-bold text-gray-200">{project.title}</span> is currently restricted or being prepared for deployment.</p>
+            <p className="font-mono text-blue-400 text-xs font-bold uppercase tracking-widest mb-2">{project.category}</p>
+            <h3 className="text-3xl font-bold text-white mb-2">{project.title}</h3>
+            <p className="text-gray-400 font-medium">Project developed as part of my full-stack development work.</p>
           </div>
         </div>
         
-        <div className="p-8 md:p-10 bg-slate-800/80/40">
-          <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/5 pb-2">Project Snapshot</h4>
+        <div className="p-8 md:p-10 bg-slate-800/40">
+          <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/5 pb-2">Project Details</h4>
           
           <div className="space-y-4">
             <div>
-              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Category</span>
-              <p className="text-white font-medium">{project.category}</p>
+              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Description</span>
+              <p className="text-gray-300">{project.description}</p>
             </div>
             
             <div>
-              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Description</span>
-              <p className="text-gray-300">{project.description}</p>
+              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Key Features</span>
+              <ul className="grid grid-cols-1 gap-1 mt-2">
+                {project.features.map((feature, i) => (
+                  <li key={i} className="text-sm text-gray-300 flex items-start">
+                    <span className="text-blue-400 mr-2">&gt;</span> {feature}
+                  </li>
+                ))}
+              </ul>
             </div>
             
             <div>
@@ -192,15 +200,43 @@ const ProjectModal = ({ project, onClose }) => {
                 ))}
               </div>
             </div>
+            
+            <div>
+              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest font-bold">Status</span>
+              <p className="text-blue-400 font-medium text-sm">Active / Available upon request</p>
+            </div>
           </div>
           
-          <div className="mt-8 pt-6 border-t border-white/5 flex justify-center">
-             <button 
-               onClick={onClose}
-               className="px-8 py-3 bg-slate-800/80 text-white font-bold rounded-xl hover:bg-slate-700/80 transition-colors shadow-glow"
-             >
-               Understood
-             </button>
+          <div className="mt-8 pt-6 border-t border-white/5 flex justify-center gap-4">
+            {project.githubUrl && (
+              <a 
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 border bg-slate-800 text-white hover:bg-slate-700 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] border-white/20"
+              >
+                <FaGithub /> GitHub
+              </a>
+            )}
+            {project.liveUrl && (
+              <a 
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 border bg-blue-600/20 text-white hover:bg-blue-600 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(59,130,246,0.6)] border-blue-500/50"
+              >
+                <FaExternalLinkAlt size={12} /> View Project
+              </a>
+            )}
+            
+            {!project.githubUrl && !project.liveUrl && (
+              <button 
+                onClick={onClose}
+                className="px-8 py-3 bg-slate-800 text-white font-bold rounded-xl hover:bg-slate-700 transition-colors shadow-glow"
+              >
+                Close
+              </button>
+            )}
           </div>
         </div>
       </motion.div>
@@ -234,7 +270,7 @@ const Projects = () => {
           </div>
         ) : (
           <div className="w-full glass-panel rounded-3xl p-16 text-center border border-white/10 shadow-glass flex flex-col items-center justify-center">
-             <div className="w-20 h-20 bg-slate-800/80/50 rounded-full flex items-center justify-center mb-6">
+             <div className="w-20 h-20 bg-slate-800/50 rounded-full flex items-center justify-center mb-6">
                 <FaRegFolderOpen className="text-4xl text-slate-300" />
              </div>
              <h3 className="text-2xl font-bold text-white mb-2">Awaiting Project Data</h3>
