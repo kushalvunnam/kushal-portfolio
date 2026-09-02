@@ -107,7 +107,8 @@ export const portfolioData = {
   ],
   languages: [
     { name: "English", level: "Fluent", progress: 90 },
-    { name: "Telugu", level: "Native", progress: 100 }
+    { name: "Telugu", level: "Native", progress: 100 },
+    { name: "Hindi", level: "Beginner", progress: 30 }
   ],
   achievements: []
 };
